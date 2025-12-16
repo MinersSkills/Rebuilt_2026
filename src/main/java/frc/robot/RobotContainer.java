@@ -4,16 +4,19 @@
 
 package frc.robot;
 
+import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
+
 import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.trajectory.TrapezoidProfile.Constraints;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
-import edu.wpi.first.wpilibj.RobotBase;
+import edu.wpi.first.wpilibj.smartdashboard.Field2d;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -32,6 +35,7 @@ import swervelib.SwerveInputStream;
  * trigger mappings) should be declared here.
  */
 public class RobotContainer {
+    SendableChooser<Command> autoChooser;
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   final CommandXboxController driverXbox = new CommandXboxController(0);
@@ -56,9 +60,14 @@ public class RobotContainer {
    * Clone's the angular velocity input stream and converts it to a fieldRelative
    * input stream.
    */
-  SwerveInputStream driveDirectAngle = driveAngularVelocity.copy().withControllerHeadingAxis(driverXbox::getRightX,
-      driverXbox::getRightY)
-      .headingWhile(true);
+        SwerveInputStream driveDirectAngle = driveAngularVelocity.copy()
+                        .withControllerHeadingAxis(() -> driverXbox.getRightX() * -1,
+                                        () -> driverXbox.getRightY() * -1)
+                        .headingWhile(true)
+                        .driveToPose(() -> new Pose2d(1.913, 4.03, new Rotation2d()),
+                                        new ProfiledPIDController(5, 0, 0, new Constraints(.5, .5)),
+                                        new ProfiledPIDController(1, 0, 0, new Constraints(Units.degreesToRadians(90),
+                                                        Units.degreesToRadians(180))));
 
   /**
    * Clone's the angular velocity input stream and converts it to a robotRelative
@@ -101,6 +110,10 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
+
+    autoChooser = AutoBuilder.buildAutoChooser();
+    SmartDashboard.putData("Auto Chooser", autoChooser);
+
     DriverStation.silenceJoystickConnectionWarning(true);
     NamedCommands.registerCommand("test", Commands.print("I EXIST"));
   }
@@ -120,10 +133,25 @@ public class RobotContainer {
    */
   private void configureBindings() {
 
-    Command driveFieldOrientedAnglularVelocity = drivebase.driveFieldOriented(driveAngularVelocity);
-    drivebase.setDefaultCommand(driveFieldOrientedAnglularVelocity);
+    Command driveFieldOrientedDirectAngle = drivebase.driveFieldOriented(driveDirectAngle);
+    drivebase.setDefaultCommand(driveFieldOrientedDirectAngle);
 
-    driverXbox.x().onTrue((Commands.runOnce(drivebase::zeroGyro)));
+    driveDirectAngle.driveToPose(() -> new Pose2d(1.913, 4.03, new Rotation2d()),
+    new ProfiledPIDController(5, 0, 0, new Constraints(.5, .5)),
+    new ProfiledPIDController(1, 0, 0, new Constraints(Units.degreesToRadians(90),
+                    Units.degreesToRadians(180))));
+
+
+        driverXbox.y().onTrue(Commands.runEnd(() -> driveDirectAngle.driveToPoseEnabled(true),
+                                () -> driveDirectAngle.driveToPoseEnabled(false))
+                                .until(() -> driveDirectAngle.atTargetPose(0.01)));
+
+
+    Field2d field = new Field2d();
+    field.setRobotPose(new Pose2d(1.913, 4.03, new Rotation2d()));
+
+    SmartDashboard.putData("Target pose", field);
+
 
   }
 
@@ -134,7 +162,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return drivebase.getAutonomousCommand("New Auto");
+    return autoChooser.getSelected();
   }
 
   public void setMotorBrake(boolean brake) {
