@@ -136,7 +136,7 @@ public class RobotContainer {
     driverXbox.y().onTrue(new DriveToPose(drivebase, new Pose2d(1.913, 4.03, new Rotation2d(45)), driveDirectAngle));
 
     Field2d field = new Field2d();
-    field.setRobotPose(new Pose2d(2.9, 3.3, new Rotation2d(90)));
+    field.setRobotPose(new Pose2d(1.913, 4.03, new Rotation2d(45)));
 
     SmartDashboard.putData("Target pose", field);
 
