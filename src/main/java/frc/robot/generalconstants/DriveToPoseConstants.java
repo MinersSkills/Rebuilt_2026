@@ -21,7 +21,7 @@ public final class DriveToPoseConstants {
 
         public static final double TOLERANCE = Units.degreesToRadians(2);
 
-        public static final double MAX_VELOCITY = Units.degreesToRadians(90);
-        public static final double MAX_ACELERATION = Units.degreesToRadians(180);
+        public static final double MAX_VELOCITY = Units.degreesToRadians(180);
+        public static final double MAX_ACELERATION = Units.degreesToRadians(360);
     }
 }

@@ -9,6 +9,7 @@ import com.pathplanner.lib.auto.NamedCommands;
 
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
@@ -133,10 +134,10 @@ public class RobotContainer {
 
     driverXbox.back().onTrue(Commands.runOnce(() -> CommandScheduler.getInstance().cancelAll()));
 
-    driverXbox.y().onTrue(new DriveToPose(drivebase, new Pose2d(1.913, 4.03, new Rotation2d(45)), driveDirectAngle));
+    driverXbox.y().onTrue(new DriveToPose(drivebase, new Pose2d(1.913, 4.03, new Rotation2d()), driveDirectAngle));
 
     Field2d field = new Field2d();
-    field.setRobotPose(new Pose2d(1.913, 4.03, new Rotation2d(45)));
+    field.setRobotPose(new Pose2d(1.913, 4.03, new Rotation2d()));
 
     SmartDashboard.putData("Target pose", field);
 
