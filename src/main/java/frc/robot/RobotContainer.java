@@ -6,10 +6,7 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
-
-import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
@@ -135,7 +132,7 @@ public class RobotContainer {
 
     driverXbox.back().onTrue(Commands.runOnce(() -> CommandScheduler.getInstance().cancelAll()));
 
-    // driverXbox.y().onTrue(new DriveToPose(drivebase, pFlipper.getFrontReefA()));
+    driverXbox.y().onTrue(new DriveToPose(drivebase, PoseFlipper.getFrontReefA(), driveDirectAngle));
 
     Field2d field = new Field2d();
     field.setRobotPose(PoseFlipper.getFrontReefA());
