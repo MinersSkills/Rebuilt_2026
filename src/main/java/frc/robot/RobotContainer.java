@@ -6,10 +6,7 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
-
-import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
@@ -22,6 +19,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.swervedrive.drivebase.DriveToPose;
+import frc.robot.poseflipper.PoseFlipper;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import java.io.File;
 import swervelib.SwerveInputStream;
@@ -134,10 +132,10 @@ public class RobotContainer {
 
     driverXbox.back().onTrue(Commands.runOnce(() -> CommandScheduler.getInstance().cancelAll()));
 
-    driverXbox.y().onTrue(new DriveToPose(drivebase, new Pose2d(1.913, 4.03, new Rotation2d()), driveDirectAngle));
+    driverXbox.y().onTrue(new DriveToPose(drivebase, PoseFlipper.getFrontReefA(), driveDirectAngle));
 
     Field2d field = new Field2d();
-    field.setRobotPose(new Pose2d(1.913, 4.03, new Rotation2d()));
+    field.setRobotPose(PoseFlipper.getFrontReefA());
 
     SmartDashboard.putData("Target pose", field);
 
