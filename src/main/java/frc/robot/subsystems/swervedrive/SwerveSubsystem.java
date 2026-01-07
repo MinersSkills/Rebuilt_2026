@@ -67,7 +67,7 @@ import java.io.File;
      * PhotonVision class to keep an accurate odometry.
      */
 
-      private LimelightPoseEstimator limelightPoseEstimator = new LimelightPoseEstimator();
+      private LimelightPoseEstimator limelightPoseEstimator = new LimelightPoseEstimator("limelight");
 
     /**
      * Initialize {@link SwerveDrive} with the directory provided.
@@ -128,8 +128,11 @@ import java.io.File;
 
   @Override
   public void periodic() {
+
     swerveDrive.updateOdometry();
+
     limelightPoseEstimator.updateEstimatePose(swerveDrive.getOdometryHeading().getDegrees(), swerveDrive.getRobotVelocity().omegaRadiansPerSecond * (180 / Math.PI));
+    
     if(limelightPoseEstimator.isTheLastEstimatedPoseValid()){
       Pose2d mt2Pose2d = limelightPoseEstimator.getEstimatedPose();
 

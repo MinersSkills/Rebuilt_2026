@@ -6,15 +6,21 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class LimelightPoseEstimator {
 
+    private final String limelightName;
+
     private Pose2d poseMegaTag2 = new Pose2d();
     private double timestampSeconds = 0.0;
     private boolean doRejectUpdate = false;
 
     private Field2d field2d = new Field2d();
 
+    public LimelightPoseEstimator(String limelightName){
+        this.limelightName = limelightName;
+    }
+
     public void updateEstimatePose(double yawDegrees, double yawRate){
-        LimeLightHelpers.SetRobotOrientation("limelight", yawDegrees, 0, 0, 0, 0, 0);
-        LimeLightHelpers.PoseEstimate mt2 = LimeLightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2("limelight");
+        LimeLightHelpers.SetRobotOrientation(limelightName, yawDegrees, 0, 0, 0, 0, 0);
+        LimeLightHelpers.PoseEstimate mt2 = LimeLightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2(limelightName);
 
         doRejectUpdate = false;
          
