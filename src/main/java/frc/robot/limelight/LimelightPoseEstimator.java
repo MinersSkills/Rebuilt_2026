@@ -28,6 +28,7 @@ public class LimelightPoseEstimator {
         if(mt2 == null || Math.abs(yawRate) > 360 || mt2.tagCount == 0)
         {
           doRejectUpdate = true;
+          return;
         }
         if(mt2.tagCount == 0)
         {
