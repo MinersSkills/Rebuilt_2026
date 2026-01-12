@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.648619047619049,
+        "y": 2.7500833333333334
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.981777482878579,
+        "y": 2.769363350185071
+      },
+      "isLocked": false,
+      "linkedName": "RotaDireita_PosicaoInicial"
+    },
+    {
+      "anchor": {
+        "x": 2.5256666666666674,
+        "y": 2.7500833333333334
+      },
+      "prevControl": {
+        "x": 2.2756728402676747,
+        "y": 2.7483264148974733
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "RotaDireita_inicialLastPoint"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 34.61946562345977
+  },
+  "reversed": false,
+  "folder": "RotaDireita-ZonaNeutraDireita",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -0.9391909457354685
+  },
+  "useDefaultConstraints": true
+}

@@ -1,0 +1,37 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RotaCentro-Deposito_Inicial"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RotaCentro-Deposito_coleta"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RotaCentro-Deposito_Atirar"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RotaCentro-Deposito_Escalar"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "Centro",
+  "choreoAuto": false
+}

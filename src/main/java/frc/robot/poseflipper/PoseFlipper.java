@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.DriverStation.Alliance;
 
 public class PoseFlipper {
 
-    private static final double FIELD_LENGTH_METERS = 17.54;
+    private static final double FIELD_LENGTH_METERS = 17.54; // 16.54 talvez
 
     public static Pose2d getFrontReefA() {
         Pose2d bluePose = new Pose2d(2.8, 3.8, new Rotation2d());

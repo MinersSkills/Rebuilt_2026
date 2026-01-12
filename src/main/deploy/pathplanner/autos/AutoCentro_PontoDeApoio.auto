@@ -1,0 +1,37 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RotaCentro-PontoDeApoio_inicial"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RotaCentro-PontoDeApoio_Coleta"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RotaCentro-PontoDeApoio_Atirar"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RotaCentro-PontoDeApoio_Escalar"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "Centro",
+  "choreoAuto": false
+}

@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 2.6012500000000007,
+        "y": 4.121380952380952
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.850404106828811,
+        "y": 4.100832690889091
+      },
+      "isLocked": false,
+      "linkedName": "RotaInicial_lastPoint"
+    },
+    {
+      "anchor": {
+        "x": 1.4243095238095247,
+        "y": 3.5491071428571423
+      },
+      "prevControl": {
+        "x": 1.182728928013135,
+        "y": 3.484773514522799
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "RotaCentro_EscalarLastPoint"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": "RotaCentro-Deposito",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}

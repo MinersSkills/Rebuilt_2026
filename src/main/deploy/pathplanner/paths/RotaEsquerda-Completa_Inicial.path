@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.605428571428572,
+        "y": 5.589857142857142
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.939480629493443,
+        "y": 5.5372031316662325
+      },
+      "isLocked": false,
+      "linkedName": "RotaEsquerda_PosicaoInicial"
+    },
+    {
+      "anchor": {
+        "x": 2.514869047619049,
+        "y": 5.589857142857142
+      },
+      "prevControl": {
+        "x": 2.264966405359913,
+        "y": 5.596833488025085
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "RotaEsquerda-Inicial_lastPoint"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -43.47653520834818
+  },
+  "reversed": false,
+  "folder": "RotaEsquerda-Completa",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}

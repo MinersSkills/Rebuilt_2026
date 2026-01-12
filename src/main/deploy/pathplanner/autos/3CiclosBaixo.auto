@@ -7,13 +7,19 @@
         {
           "type": "path",
           "data": {
-            "pathName": "teste"
+            "pathName": "CalculoRotaBaixo_inicial"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "CalculoRotaBaixo_atirar"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": null,
+  "folder": "Contagem-Ciclos",
   "choreoAuto": false
 }
