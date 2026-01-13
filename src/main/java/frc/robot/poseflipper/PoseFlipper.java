@@ -12,8 +12,8 @@ public class PoseFlipper {
 
     private static final double FIELD_LENGTH_METERS = 17.54; // 16.54 talvez
 
-    public static Pose2d getFrontReefA() {
-        Pose2d bluePose = new Pose2d(2.8, 3.8, new Rotation2d());
+    public static Pose2d centerScorePosition() {
+        Pose2d bluePose = new Pose2d(1.9, 4, new Rotation2d());
 
         Optional<Alliance> alliance = DriverStation.getAlliance();
 
