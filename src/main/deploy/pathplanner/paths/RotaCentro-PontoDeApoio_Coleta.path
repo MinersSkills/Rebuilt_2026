@@ -16,12 +16,12 @@
     },
     {
       "anchor": {
-        "x": 0.362820512820513,
-        "y": 0.7403418803418822
+        "x": 0.8279487179487182,
+        "y": 0.7145014245014261
       },
       "prevControl": {
-        "x": 0.2011181040946256,
-        "y": 0.5496790076785179
+        "x": 0.6662463092228308,
+        "y": 0.5238385518380617
       },
       "nextControl": null,
       "isLocked": false,
@@ -33,8 +33,8 @@
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 1.0,
-    "maxAcceleration": 1.0,
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 1.332219853869494
+    "rotation": -178.61884281138262
   },
   "reversed": false,
   "folder": "RotaCentro-PontoDeApoio",
