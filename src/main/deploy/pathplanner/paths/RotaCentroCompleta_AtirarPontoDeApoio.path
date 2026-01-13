@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.7092261904761914,
-        "y": 2.7500833333333334
+        "x": 0.362820512820513,
+        "y": 0.7403418803418822
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.9989362816151965,
-        "y": 3.1972515195651914
+        "x": 0.6525306039595181,
+        "y": 1.1875100665737401
       },
       "isLocked": false,
       "linkedName": "RotaCentro-PontoDeApoio_coletaLastPoint"
@@ -33,8 +33,8 @@
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 3.0,
-    "maxAcceleration": 3.0,
+    "maxVelocity": 1.0,
+    "maxAcceleration": 1.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -48,7 +48,7 @@
   "folder": "RotaCentro-Completa",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 35.28331418221491
+    "rotation": 1.332219853869494
   },
   "useDefaultConstraints": true
 }
