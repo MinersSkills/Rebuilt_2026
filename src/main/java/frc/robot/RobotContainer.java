@@ -138,8 +138,6 @@ public class RobotContainer {
     field.setRobotPose(PoseFlipper.getFrontReefA());
 
     SmartDashboard.putData("Target pose", field);
-
-
   }
 
   /**
