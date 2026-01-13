@@ -29,10 +29,13 @@ import edu.wpi.first.math.controller.SimpleMotorFeedforward;
   import edu.wpi.first.math.util.Units;
   import edu.wpi.first.wpilibj.DriverStation;
   import edu.wpi.first.wpilibj.Timer;
-  import edu.wpi.first.wpilibj2.command.Command;
+  import edu.wpi.first.wpilibj.smartdashboard.Field2d;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.Command;
   import edu.wpi.first.wpilibj2.command.Commands;
   import edu.wpi.first.wpilibj2.command.SubsystemBase;
-  import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Config;
+import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
+import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Config;
 import frc.robot.Constants;
 import frc.robot.limelight.LimelightPoseEstimator;
 
@@ -66,9 +69,8 @@ import java.io.File;
     /**
      * PhotonVision class to keep an accurate odometry.
      */
-
-      private LimelightPoseEstimator limelight2PoseEstimator = new LimelightPoseEstimator("limelight");
       private LimelightPoseEstimator limelight3gPoseEstimator = new LimelightPoseEstimator("limelight-two");
+      private final Field2d RobotPose = new Field2d();
 
     /**
      * Initialize {@link SwerveDrive} with the directory provided.
@@ -105,7 +107,7 @@ import java.io.File;
       // swerveDrive.pushOffsetsToEncoders(); // Set the absolute encoder to be used over the internal encoder and push the offsets onto it. Throws warning if not possible
 
       setupPathPlanner();
-      // RobotModeTriggers.autonomous().onTrue(Commands.runOnce(this::zeroGyroWithAlliance));
+      RobotModeTriggers.autonomous().onTrue(Commands.runOnce(this::zeroGyroWithAlliance)); // linha do diabo
     }
 
     /**
@@ -132,17 +134,7 @@ import java.io.File;
 
     swerveDrive.updateOdometry();
 
-    limelight2PoseEstimator.updateEstimatePose(swerveDrive.getOdometryHeading().getDegrees(), swerveDrive.getRobotVelocity().omegaRadiansPerSecond * (180 / Math.PI));
     limelight3gPoseEstimator.updateEstimatePose(swerveDrive.getOdometryHeading().getDegrees(), swerveDrive.getRobotVelocity().omegaRadiansPerSecond * (180 / Math.PI));
-
-    if(limelight2PoseEstimator.isTheLastEstimatedPoseValid()){
-      Pose2d mt2Pose2d = limelight2PoseEstimator.getEstimatedPose();
-
-      swerveDrive.addVisionMeasurement(mt2Pose2d, 
-      limelight2PoseEstimator.getTimestampSecondsEstimatedPose(),
-      
-      VecBuilder.fill(.7, .7, 9999999));
-    }
 
     if(limelight3gPoseEstimator.isTheLastEstimatedPoseValid()){
       Pose2d mt2Pose2d = limelight3gPoseEstimator.getEstimatedPose();
@@ -151,7 +143,11 @@ import java.io.File;
       limelight3gPoseEstimator.getTimestampSecondsEstimatedPose(),
       
       VecBuilder.fill(.7, .7, 9999999));
+      
     }
+
+    RobotPose.setRobotPose(swerveDrive.getPose());
+    SmartDashboard.putData("RobotPose", RobotPose);
   }
 
     @Override
