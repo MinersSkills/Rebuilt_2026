@@ -67,7 +67,8 @@ import java.io.File;
      * PhotonVision class to keep an accurate odometry.
      */
 
-      private LimelightPoseEstimator limelightPoseEstimator = new LimelightPoseEstimator();
+      private LimelightPoseEstimator limelight2PoseEstimator = new LimelightPoseEstimator("limelight");
+      private LimelightPoseEstimator limelight3gPoseEstimator = new LimelightPoseEstimator("limelight-two");
 
     /**
      * Initialize {@link SwerveDrive} with the directory provided.
@@ -128,13 +129,26 @@ import java.io.File;
 
   @Override
   public void periodic() {
+
     swerveDrive.updateOdometry();
-    limelightPoseEstimator.updateEstimatePose(swerveDrive.getOdometryHeading().getDegrees(), swerveDrive.getRobotVelocity().omegaRadiansPerSecond * (180 / Math.PI));
-    if(limelightPoseEstimator.isTheLastEstimatedPoseValid()){
-      Pose2d mt2Pose2d = limelightPoseEstimator.getEstimatedPose();
+
+    limelight2PoseEstimator.updateEstimatePose(swerveDrive.getOdometryHeading().getDegrees(), swerveDrive.getRobotVelocity().omegaRadiansPerSecond * (180 / Math.PI));
+    limelight3gPoseEstimator.updateEstimatePose(swerveDrive.getOdometryHeading().getDegrees(), swerveDrive.getRobotVelocity().omegaRadiansPerSecond * (180 / Math.PI));
+
+    if(limelight2PoseEstimator.isTheLastEstimatedPoseValid()){
+      Pose2d mt2Pose2d = limelight2PoseEstimator.getEstimatedPose();
 
       swerveDrive.addVisionMeasurement(mt2Pose2d, 
-      limelightPoseEstimator.getTimestampSecondsEstimatedPose(),
+      limelight2PoseEstimator.getTimestampSecondsEstimatedPose(),
+      
+      VecBuilder.fill(.7, .7, 9999999));
+    }
+
+    if(limelight3gPoseEstimator.isTheLastEstimatedPoseValid()){
+      Pose2d mt2Pose2d = limelight3gPoseEstimator.getEstimatedPose();
+
+      swerveDrive.addVisionMeasurement(mt2Pose2d, 
+      limelight3gPoseEstimator.getTimestampSecondsEstimatedPose(),
       
       VecBuilder.fill(.7, .7, 9999999));
     }

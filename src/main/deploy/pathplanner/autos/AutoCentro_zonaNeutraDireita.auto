@@ -1,0 +1,37 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RotaCentro_inicial"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RotaCentro_coleta"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RotaCentro_pontuar"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RotaCentro_escalar"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "Centro",
+  "choreoAuto": false
+}

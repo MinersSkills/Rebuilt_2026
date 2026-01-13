@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.47411904761904866,
+        "y": 6.054154761904763
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 0.9701523707322384,
+        "y": 5.355357754871282
+      },
+      "isLocked": false,
+      "linkedName": "RotaCentro-Deposito_ColetaLastPoint"
+    },
+    {
+      "anchor": {
+        "x": 2.6012500000000007,
+        "y": 4.121380952380952
+      },
+      "prevControl": {
+        "x": 1.637319773022941,
+        "y": 4.663820874137114
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "RotaInicial_lastPoint"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": "RotaCentro-Deposito",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -50.013113755035874
+  },
+  "useDefaultConstraints": true
+}

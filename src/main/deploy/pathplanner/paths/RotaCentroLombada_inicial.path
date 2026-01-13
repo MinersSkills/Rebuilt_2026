@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.605428571428572,
+        "y": 4.121380952380952
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 4.0261743910175545,
+        "y": 4.139374071843515
+      },
+      "isLocked": false,
+      "linkedName": "PontoPartidCentro"
+    },
+    {
+      "anchor": {
+        "x": 2.6012500000000007,
+        "y": 4.121380952380952
+      },
+      "prevControl": {
+        "x": 2.3519273340495994,
+        "y": 4.102990513468721
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "RotaInicial_lastPoint"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": "RotaCentro-Lombada",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}

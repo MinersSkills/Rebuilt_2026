@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 2.7092261904761914,
+        "y": 2.7500833333333334
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.886590444063727,
+        "y": 2.9522142469993438
+      },
+      "isLocked": false,
+      "linkedName": "RotaCentro-PontoDeApoio_coletaLastPoint"
+    },
+    {
+      "anchor": {
+        "x": 2.6012500000000007,
+        "y": 4.121380952380952
+      },
+      "prevControl": {
+        "x": 2.304872149723303,
+        "y": 3.6661380086059427
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "RotaInicial_lastPoint"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": "RotaCentro-PontoDeApoio",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 35.28331418221491
+  },
+  "useDefaultConstraints": true
+}

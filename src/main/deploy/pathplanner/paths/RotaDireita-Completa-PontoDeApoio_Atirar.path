@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.3553452380952389,
+        "y": 0.6553452380952387
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.2124015262081915,
+        "y": 1.3888061356320833
+      },
+      "isLocked": false,
+      "linkedName": "RotaDireita-PontoDeApoio_coletaLastPoint"
+    },
+    {
+      "anchor": {
+        "x": 2.5256666666666674,
+        "y": 2.7500833333333334
+      },
+      "prevControl": {
+        "x": 1.7793973718562879,
+        "y": 2.0476171755591634
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "RotaDireita_inicialLastPoint"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 34.61946562345977
+  },
+  "reversed": false,
+  "folder": "RotaDireita-Completa",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}
