@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.swervedrive.drivebase.DriveToPose;
+import frc.robot.generalconstants.FieldConstants;
 import frc.robot.poseflipper.PoseFlipper;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import java.io.File;
@@ -33,7 +34,7 @@ import swervelib.SwerveInputStream;
  * trigger mappings) should be declared here.
  */
 public class RobotContainer {
-    SendableChooser<Command> autoChooser;
+  SendableChooser<Command> autoChooser;
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   final CommandXboxController driverXbox = new CommandXboxController(0);
@@ -58,10 +59,10 @@ public class RobotContainer {
    * Clone's the angular velocity input stream and converts it to a fieldRelative
    * input stream.
    */
-      public SwerveInputStream driveDirectAngle = driveAngularVelocity.copy()
-                        .withControllerHeadingAxis(() -> driverXbox.getRightX() * -1,
-                                        () -> driverXbox.getRightY() * -1)
-                        .headingWhile(true);
+  public SwerveInputStream driveDirectAngle = driveAngularVelocity.copy()
+      .withControllerHeadingAxis(() -> driverXbox.getRightX() * -1,
+          () -> driverXbox.getRightY() * -1)
+      .headingWhile(true);
 
   /**
    * Clone's the angular velocity input stream and converts it to a robotRelative
@@ -126,13 +127,21 @@ public class RobotContainer {
    * Flight joysticks}.
    */
   private void configureBindings() {
+    driveDirectAngle.aim(FieldConstants.HubCenter);
+
 
     Command driveFieldOrientedDirectAngle = drivebase.driveFieldOriented(driveDirectAngle);
     drivebase.setDefaultCommand(driveFieldOrientedDirectAngle);
 
     driverXbox.back().onTrue(Commands.runOnce(() -> CommandScheduler.getInstance().cancelAll()));
 
-    driverXbox.y().onTrue(new DriveToPose(drivebase, PoseFlipper.centerScorePosition(), driveDirectAngle));
+    driverXbox.y().toggleOnTrue(Commands.runEnd(() -> driveDirectAngle.aimWhile(true), () -> driveDirectAngle.aimWhile(false)));
+
+    driverXbox.b().onTrue(new DriveToPose(drivebase, FieldConstants.ScorePositionRight, driveDirectAngle));
+
+    driverXbox.a().onTrue(new DriveToPose(drivebase, FieldConstants.ScorePositionCenter, driveDirectAngle));
+
+    driverXbox.x().onTrue(new DriveToPose(drivebase, FieldConstants.ScorePositionLeft, driveDirectAngle));
 
     Field2d field = new Field2d();
     field.setRobotPose(PoseFlipper.centerScorePosition());
