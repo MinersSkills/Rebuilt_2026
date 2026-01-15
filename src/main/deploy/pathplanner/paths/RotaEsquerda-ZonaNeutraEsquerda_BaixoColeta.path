@@ -8,49 +8,58 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.83879761904762,
-        "y": 6.734404761904761
+        "x": 2.4171367521367517,
+        "y": 6.77408831908832
       },
       "isLocked": false,
       "linkedName": "RotaEsquerda-Inicial_lastPoint"
     },
     {
       "anchor": {
-        "x": 4.631202380952382,
-        "y": 7.609011904761905
+        "x": 4.561894586894587,
+        "y": 7.355498575498576
       },
       "prevControl": {
-        "x": 2.5688571428571443,
-        "y": 7.706190476190477
+        "x": 1.9595940867911277,
+        "y": 7.372732353644957
       },
       "nextControl": {
-        "x": 6.3527559443331265,
-        "y": 7.527891579785849
+        "x": 6.512849002849001,
+        "y": 7.342578347578348
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 7.913678571428573,
-        "y": 5.978571428571429
+        "x": 6.732492877492876,
+        "y": 5.947193732193732
       },
       "prevControl": {
-        "x": 6.913678571428573,
-        "y": 5.978571428571429
+        "x": 6.7841737891737885,
+        "y": 6.825769230769231
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "RotaEsquerda-ZonaNeutraEsquerda_coletaLastPoint"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": 0.0
+    },
+    {
+      "waypointRelativePos": 1.1,
+      "rotationDegrees": 0.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 3.0,
-    "maxAcceleration": 3.0,
+    "maxVelocity": 0.8,
+    "maxAcceleration": 0.8,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -58,7 +67,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -90.95484125387219
   },
   "reversed": false,
   "folder": "RotaEsquerda-ZonaNeutraEsquerda",

@@ -137,7 +137,7 @@ public class RobotContainer {
 
     driverXbox.y().toggleOnTrue(Commands.runEnd(() -> driveDirectAngle.aimWhile(true), () -> driveDirectAngle.aimWhile(false)));
 
-    driverXbox.b().onTrue(new DriveToPose(drivebase, FieldConstants.ScorePositionRight, driveDirectAngle));
+    driverXbox.b().onTrue(new DriveToPose(drivebase, FieldConstants.ScorePositionRight, driveDirectAngle)); 
 
     driverXbox.a().onTrue(new DriveToPose(drivebase, FieldConstants.ScorePositionCenter, driveDirectAngle));
 
