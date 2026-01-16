@@ -8,27 +8,11 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.4171367521367517,
-        "y": 6.77408831908832
+        "x": 2.1909404761844944,
+        "y": 7.93294047618874
       },
       "isLocked": false,
       "linkedName": "RotaEsquerda-Inicial_lastPoint"
-    },
-    {
-      "anchor": {
-        "x": 4.561894586894587,
-        "y": 7.355498575498576
-      },
-      "prevControl": {
-        "x": 1.9595940867911277,
-        "y": 7.372732353644957
-      },
-      "nextControl": {
-        "x": 6.512849002849001,
-        "y": 7.342578347578348
-      },
-      "isLocked": false,
-      "linkedName": null
     },
     {
       "anchor": {
@@ -36,8 +20,8 @@
         "y": 5.947193732193732
       },
       "prevControl": {
-        "x": 6.7841737891737885,
-        "y": 6.825769230769231
+        "x": 6.6611547618987785,
+        "y": 7.878952380950645
       },
       "nextControl": null,
       "isLocked": false,
@@ -47,19 +31,15 @@
   "rotationTargets": [
     {
       "waypointRelativePos": 0.5,
-      "rotationDegrees": 0.0
-    },
-    {
-      "waypointRelativePos": 1.1,
-      "rotationDegrees": 0.0
+      "rotationDegrees": -90.0
     }
   ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 0.8,
-    "maxAcceleration": 0.8,
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,

@@ -25,7 +25,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "RotaDireita-ZonaNeutraDireita_Escalar"
+            "pathName": "RotaDireita-ZonaNeutraDireita_Coleta"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RotaDireita-ZonaNeutraDireita_Atirar"
           }
         }
       ]

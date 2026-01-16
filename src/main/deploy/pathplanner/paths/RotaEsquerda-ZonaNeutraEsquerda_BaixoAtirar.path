@@ -8,24 +8,24 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.45175478225478,
-        "y": 6.173943732193732
+        "x": 7.003817663817664,
+        "y": 6.77408831908832
       },
       "isLocked": false,
       "linkedName": "RotaEsquerda-ZonaNeutraEsquerda_coletaLastPoint"
     },
     {
       "anchor": {
-        "x": 4.6635952380952395,
-        "y": 7.6306071428571425
+        "x": 4.53605413105413,
+        "y": 7.497621082621083
       },
       "prevControl": {
-        "x": 6.51329761904762,
-        "y": 7.727785714285714
+        "x": 5.813579473763781,
+        "y": 7.56242309275853
       },
       "nextControl": {
-        "x": 2.813892857142859,
-        "y": 7.533428571428571
+        "x": 2.753062678062677,
+        "y": 7.407179487179486
       },
       "isLocked": false,
       "linkedName": null
@@ -36,8 +36,8 @@
         "y": 5.589857142857142
       },
       "prevControl": {
-        "x": 2.5364642857142865,
-        "y": 6.669619047619047
+        "x": 2.4558974358974366,
+        "y": 6.399401709401709
       },
       "nextControl": null,
       "isLocked": false,
@@ -49,8 +49,8 @@
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 0.8,
-    "maxAcceleration": 0.8,
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,

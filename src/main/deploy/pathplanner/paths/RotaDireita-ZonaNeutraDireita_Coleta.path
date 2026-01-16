@@ -3,47 +3,38 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.5256666666666674,
+        "x": 2.3396153846153838,
         "y": 2.7500833333333334
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.20777777777837025,
-        "y": 0.9470655270636621
+        "x": 2.3529194851753807,
+        "y": 0.09411665415449066
       },
       "isLocked": false,
       "linkedName": "RotaDireita_inicialLastPoint"
     },
     {
       "anchor": {
-        "x": 6.874615384615384,
-        "y": 2.122806267806269
+        "x": 6.822934472934472,
+        "y": 2.1615669515669524
       },
       "prevControl": {
-        "x": 6.241524216524808,
-        "y": -1.0297293447312086
+        "x": 6.369562766215481,
+        "y": 0.11518719806402311
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "RotaDireita-ZonaNeutraDireita_coletaLastPoint"
     }
   ],
-  "rotationTargets": [
-    {
-      "waypointRelativePos": 0.5094339622641486,
-      "rotationDegrees": 0.0
-    },
-    {
-      "waypointRelativePos": 0.85,
-      "rotationDegrees": 0.0
-    }
-  ],
+  "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 0.8,
-    "maxAcceleration": 0.8,
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,

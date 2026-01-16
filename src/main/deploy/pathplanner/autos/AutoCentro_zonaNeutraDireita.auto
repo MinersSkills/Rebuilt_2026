@@ -25,7 +25,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "RotaCentro_escalar"
+            "pathName": "RotaCentro_coleta"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RotaCentro_pontuar"
           }
         }
       ]
