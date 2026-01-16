@@ -34,8 +34,8 @@ public class FieldConstants {
 
         public static final Pose2d[] POSES_LEFT = {
             new Pose2d(
-                3.00,
-                7.48,
+                2.26,
+                7.06,
                 new Rotation2d(Units.degreesToRadians(270))
             ),
             new Pose2d(

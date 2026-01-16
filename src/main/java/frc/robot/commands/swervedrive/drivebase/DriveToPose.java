@@ -9,7 +9,7 @@ import frc.robot.generalconstants.DriveToPoseConstants;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import swervelib.SwerveInputStream;
 
-public class DriveToPose extends Command{
+public class DriveToPose extends Command {
     private final SwerveSubsystem swerve;
     private final Pose2d targetPose;
     private final SwerveInputStream stream;
@@ -18,40 +18,35 @@ public class DriveToPose extends Command{
     private final ProfiledPIDController yPID;
     private final ProfiledPIDController thetaPID;
 
+
     public DriveToPose(SwerveSubsystem swerve, Pose2d targetPose, SwerveInputStream stream) {
         this.swerve = swerve;
         this.targetPose = targetPose;
         this.stream = stream;
 
         xPID = new ProfiledPIDController(
-            DriveToPoseConstants.TranslationPID.KP,
-            DriveToPoseConstants.TranslationPID.KI,
-            DriveToPoseConstants.TranslationPID.KD,
-            new Constraints(
-                DriveToPoseConstants.TranslationPID.MAX_VELOCITY,
-                DriveToPoseConstants.TranslationPID.MAX_ACELERATION
-            )
-        );
+                DriveToPoseConstants.TranslationPID.KP,
+                DriveToPoseConstants.TranslationPID.KI,
+                DriveToPoseConstants.TranslationPID.KD,
+                new Constraints(
+                        DriveToPoseConstants.TranslationPID.MAX_VELOCITY,
+                        DriveToPoseConstants.TranslationPID.MAX_ACELERATION));
 
         yPID = new ProfiledPIDController(
-            DriveToPoseConstants.TranslationPID.KP,
-            DriveToPoseConstants.TranslationPID.KI,
-            DriveToPoseConstants.TranslationPID.KD,
-            new Constraints(
-                DriveToPoseConstants.TranslationPID.MAX_VELOCITY,
-                DriveToPoseConstants.TranslationPID.MAX_ACELERATION
-            )
-        );
+                DriveToPoseConstants.TranslationPID.KP,
+                DriveToPoseConstants.TranslationPID.KI,
+                DriveToPoseConstants.TranslationPID.KD,
+                new Constraints(
+                        DriveToPoseConstants.TranslationPID.MAX_VELOCITY,
+                        DriveToPoseConstants.TranslationPID.MAX_ACELERATION));
 
         thetaPID = new ProfiledPIDController(
-            DriveToPoseConstants.RotationPID.KP,
-            DriveToPoseConstants.RotationPID.KI,
-            DriveToPoseConstants.RotationPID.KD,
-            new Constraints(
-                DriveToPoseConstants.RotationPID.MAX_VELOCITY,
-                DriveToPoseConstants.RotationPID.MAX_ACELERATION
-            )
-        );
+                DriveToPoseConstants.RotationPID.KP,
+                DriveToPoseConstants.RotationPID.KI,
+                DriveToPoseConstants.RotationPID.KD,
+                new Constraints(
+                        DriveToPoseConstants.RotationPID.MAX_VELOCITY,
+                        DriveToPoseConstants.RotationPID.MAX_ACELERATION));
 
         xPID.setTolerance(DriveToPoseConstants.TranslationPID.TOLERANCE);
         yPID.setTolerance(DriveToPoseConstants.TranslationPID.TOLERANCE);
@@ -67,6 +62,7 @@ public class DriveToPose extends Command{
         stream.headingWhile(false);
 
         Pose2d pose = swerve.getPose();
+
 
         xPID.reset(pose.getX());
         yPID.reset(pose.getY());
@@ -85,13 +81,11 @@ public class DriveToPose extends Command{
         double vy = yPID.calculate(pose.getY());
         double omega = thetaPID.calculate(pose.getRotation().getRadians());
 
-        ChassisSpeeds speeds =
-            ChassisSpeeds.fromFieldRelativeSpeeds(
+        ChassisSpeeds speeds = ChassisSpeeds.fromFieldRelativeSpeeds(
                 vx,
                 vy,
                 omega,
-                pose.getRotation()
-            );
+                pose.getRotation());
 
         swerve.drive(speeds);
     }
@@ -99,8 +93,8 @@ public class DriveToPose extends Command{
     @Override
     public boolean isFinished() {
         return xPID.atGoal()
-            && yPID.atGoal()
-            && thetaPID.atGoal();
+                && yPID.atGoal()
+                && thetaPID.atGoal();
     }
 
     @Override
