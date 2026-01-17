@@ -57,11 +57,15 @@ public class Intake extends SubsystemBase {
     }
 
     public void setWheelsIntake(){
-        intake.set(IntakeConstants.Speeds.SPEED_INTAKE);
+        intakeWheels.set(IntakeConstants.Speeds.SPEED_INTAKE);
     }
 
     public void setWheelsOutake(){
-        intake.set(IntakeConstants.Speeds.SPEED_OUTAKE);
+        intakeWheels.set(IntakeConstants.Speeds.SPEED_OUTAKE);
+    }
+
+    public void setWheelsOff(){
+        intakeWheels.stopMotor();
     }
 
     public void dashboard(){
