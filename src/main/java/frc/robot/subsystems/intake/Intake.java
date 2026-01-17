@@ -6,6 +6,8 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.generalconstants.IntakeConstants;
 
@@ -60,5 +62,9 @@ public class Intake extends SubsystemBase {
 
     public void setWheelsOutake(){
         intake.set(IntakeConstants.Speeds.SPEED_OUTAKE);
+    }
+
+    public void dashboard(){
+        SmartDashboard.putNumber("Intake position", intakeEncoder.getPosition());
     }
 }
