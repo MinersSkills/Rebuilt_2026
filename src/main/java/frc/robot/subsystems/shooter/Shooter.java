@@ -5,6 +5,7 @@ import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.generalconstants.ShooterConstants;
 
 public class Shooter extends SubsystemBase{
     private SparkMaxConfig motorShooterConfig;
@@ -28,7 +29,11 @@ public class Shooter extends SubsystemBase{
         }
     }
 
-    public void setSpeed(double speed){
-        shooter.set(speed);
+    public void setSpeedScore(){
+        shooter.set(ShooterConstants.Speeds.SHOOT_SPEED);
+    }
+
+    public void setShooterOff(){
+        shooter.stopMotor();
     }
 }

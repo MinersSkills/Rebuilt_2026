@@ -156,7 +156,7 @@ public class RobotContainer {
                 .onTrue(new DriveToPose(drivebase, FieldConstants.ScorePositionLeft, driveDirectAngle));
 
         keyboardController.getATrigger()
-                .onTrue(new SetShooterScore(shooter, 1));
+                .onTrue(new SetShooterScore(shooter));
 
     }
 
