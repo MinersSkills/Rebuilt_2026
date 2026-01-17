@@ -45,4 +45,20 @@ public class Intake extends SubsystemBase {
         intake.configure(motorIntakeConfig, null, PersistMode.kNoPersistParameters);
         intake.getClosedLoopController().setSetpoint(setpoint, ControlType.kPosition);
     }
+
+    public void setIntakeDown(){
+        setSetpoint(0);
+    }
+
+    public void setIntakeUp(){
+        setSetpoint(0);
+    }
+
+    public void setWheelsIntake(){
+        intake.set(0);
+    }
+
+    public void setWheelsOutake(){
+        intake.set(0);
+    }
 }
