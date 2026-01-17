@@ -6,7 +6,10 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
+import edu.wpi.first.math.controller.ProfiledPIDController;
+import edu.wpi.first.math.trajectory.TrapezoidProfile.Constraints;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.generalconstants.IntakeConstants;
 
 public class Intake extends SubsystemBase {
     private SparkMaxConfig motorIntakeConfig;
@@ -17,9 +20,10 @@ public class Intake extends SubsystemBase {
 
     public RelativeEncoder intakeEncoder;
 
+    private final ProfiledPIDController intakePID;
+
     public Intake(){
         // Intake articulation 
-
         motorIntakeConfig = new SparkMaxConfig();
         motorIntakeConfig.idleMode(IdleMode.kBrake);
         motorIntakeConfig.inverted(false);
@@ -36,5 +40,17 @@ public class Intake extends SubsystemBase {
 
         // Encoder
         intakeEncoder = intake.getEncoder();
+
+        // PID Initializing
+        intakePID = new ProfiledPIDController(
+            IntakeConstants.Pid.KP, 
+            IntakeConstants.Pid.KI, 
+            IntakeConstants.Pid.KD, 
+            new Constraints(
+                IntakeConstants.Pid.MAX_VELOCITY, 
+                IntakeConstants.Pid.MAX_ACELERATION)
+        );
     }
+
+
 }
