@@ -29,4 +29,8 @@ public class KeyboardController {
     public Trigger getLeftTrigger(){
         return createTrigger("Key.left");
     }
+
+    public Trigger getATrigger(){
+        return createTrigger("a");
+    }
 }
