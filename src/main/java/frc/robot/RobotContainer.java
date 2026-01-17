@@ -17,9 +17,11 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.shooter.SetShooterScore;
 import frc.robot.commands.swervedrive.drivebase.DriveToPose;
 import frc.robot.generalconstants.FieldConstants;
 import frc.robot.joystick.KeyboardController;
+import frc.robot.subsystems.shooter.Shooter;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import java.io.File;
 import swervelib.SwerveInputStream;
@@ -34,6 +36,8 @@ import swervelib.SwerveInputStream;
  */
 public class RobotContainer {
     SendableChooser<Command> autoChooser;
+
+    Shooter shooter;
 
     // Replace with CommandPS4Controller or CommandJoystick if needed
     final CommandXboxController driverXbox = new CommandXboxController(0);
@@ -150,6 +154,9 @@ public class RobotContainer {
 
         keyboardController.getLeftTrigger()
                 .onTrue(new DriveToPose(drivebase, FieldConstants.ScorePositionLeft, driveDirectAngle));
+
+        keyboardController.getATrigger()
+                .onTrue(new SetShooterScore(shooter, 1));
 
     }
 
