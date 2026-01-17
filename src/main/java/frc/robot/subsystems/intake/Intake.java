@@ -1,13 +1,11 @@
 package frc.robot.subsystems.intake;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.PersistMode;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
-
-import edu.wpi.first.math.controller.ProfiledPIDController;
-import edu.wpi.first.math.trajectory.TrapezoidProfile.Constraints;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.generalconstants.IntakeConstants;
 
@@ -19,8 +17,6 @@ public class Intake extends SubsystemBase {
     public static SparkMax intakeWheels = new SparkMax(3, MotorType.kBrushless);
 
     public RelativeEncoder intakeEncoder;
-
-    private final ProfiledPIDController intakePID;
 
     public Intake(){
         // Intake articulation 
@@ -40,17 +36,13 @@ public class Intake extends SubsystemBase {
 
         // Encoder
         intakeEncoder = intake.getEncoder();
-
-        // PID Initializing
-        intakePID = new ProfiledPIDController(
-            IntakeConstants.Pid.KP, 
-            IntakeConstants.Pid.KI, 
-            IntakeConstants.Pid.KD, 
-            new Constraints(
-                IntakeConstants.Pid.MAX_VELOCITY, 
-                IntakeConstants.Pid.MAX_ACELERATION)
-        );
     }
 
-
+    public void setSetpoint(double setpoint){
+        motorIntakeConfig.closedLoop.pid(IntakeConstants.Pid.KP, 
+                                         IntakeConstants.Pid.KI, 
+                                         IntakeConstants.Pid.KD); 
+        intake.configure(motorIntakeConfig, null, PersistMode.kNoPersistParameters);
+        intake.getClosedLoopController().setSetpoint(setpoint, ControlType.kPosition);
+    }
 }
