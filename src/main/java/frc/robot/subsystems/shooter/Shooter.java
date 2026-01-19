@@ -1,5 +1,6 @@
 package frc.robot.subsystems.shooter;
 import com.revrobotics.spark.config.SparkMaxConfig;
+import com.revrobotics.PersistMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
@@ -9,21 +10,31 @@ import frc.robot.generalconstants.ShooterConstants;
 
 public class Shooter extends SubsystemBase{
     private SparkMaxConfig motorShooterConfig;
+    private SparkMaxConfig motorShooterConfig2;
 
     private XboxController driverXbox = new XboxController(0);
 
-    public static SparkMax shooter = new SparkMax(1, MotorType.kBrushless);
+    public static SparkMax shooter = new SparkMax(22, MotorType.kBrushless);
+    public static SparkMax shooter2 = new SparkMax(50, MotorType.kBrushless);
 
     public Shooter(){
         motorShooterConfig = new SparkMaxConfig();
 
-        motorShooterConfig.idleMode(IdleMode.kBrake);
+        motorShooterConfig.idleMode(IdleMode.kCoast);
         motorShooterConfig.inverted(false);
+        shooter.configure(motorShooterConfig, null, PersistMode.kNoPersistParameters);
+
+        motorShooterConfig2 = new SparkMaxConfig();
+
+        motorShooterConfig2.idleMode(IdleMode.kCoast);
+        motorShooterConfig2.inverted(true);
+        shooter2.configure(motorShooterConfig2, null, PersistMode.kNoPersistParameters);
     }
 
     public void shootState(){
         if (driverXbox.getYButton() ==  true){
             shooter.set(1);
+            shooter2.set(1);
         } else {
             shooter.set(0);
         }
