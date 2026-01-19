@@ -37,7 +37,7 @@ import swervelib.SwerveInputStream;
 public class RobotContainer {
     SendableChooser<Command> autoChooser;
 
-    Shooter shooter;
+    Shooter shooter = new Shooter();
 
     // Replace with CommandPS4Controller or CommandJoystick if needed
     final CommandXboxController driverXbox = new CommandXboxController(0);
