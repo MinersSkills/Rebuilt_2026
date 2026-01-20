@@ -6,7 +6,11 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
+import com.pathplanner.lib.path.PathConstraints;
+
+import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -142,6 +146,15 @@ public class RobotContainer {
 
         driverXbox.y().toggleOnTrue(
                 Commands.runEnd(() -> driveDirectAngle.aimWhile(true), () -> driveDirectAngle.aimWhile(false)));
+
+        driverXbox.b().onTrue(
+          AutoBuilder.pathfindToPose(new Pose2d(6.7, 5.518, new Rotation2d(Units.degreesToRadians(-142)
+                )), new PathConstraints(
+                3,
+                3,
+                Units.degreesToRadians(360),
+                Units.degreesToRadians(540)))      
+        );
                 
 
         // COMANDOS COPILOTO //
