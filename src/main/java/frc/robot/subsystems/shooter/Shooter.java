@@ -31,15 +31,6 @@ public class Shooter extends SubsystemBase{
         shooter2.configure(motorShooterConfig2, null, PersistMode.kNoPersistParameters);
     }
 
-    public void shootState(){
-        if (driverXbox.getYButton() ==  true){
-            shooter.set(1);
-            shooter2.set(1);
-        } else {
-            shooter.set(0);
-        }
-    }
-
     public void setSpeedScore(){
         shooter.set(ShooterConstants.Speeds.SHOOT_SPEED);
     }
