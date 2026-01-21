@@ -4,15 +4,12 @@ import com.revrobotics.PersistMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.generalconstants.ShooterConstants;
 
 public class Shooter extends SubsystemBase{
     private SparkMaxConfig motorShooterConfig;
     private SparkMaxConfig motorShooterConfig2;
-
-    private XboxController driverXbox = new XboxController(0);
 
     public static SparkMax shooter = new SparkMax(22, MotorType.kBrushless);
     public static SparkMax shooter2 = new SparkMax(50, MotorType.kBrushless);
