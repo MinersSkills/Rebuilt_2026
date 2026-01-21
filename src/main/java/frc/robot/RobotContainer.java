@@ -61,15 +61,36 @@ public class RobotContainer {
                         .deadband(OperatorConstants.DEADBAND)
                         .scaleTranslation(.9)
                         .scaleRotation(.4)
-                        .allianceRelativeControl(false);
+                        .allianceRelativeControl(true);
 
         /**
          * Clone's the angular velocity input stream and converts it to a fieldRelative
          * input stream.
          */
-        public SwerveInputStream driveDirectAngle = driveAngularVelocity.copy()
-                        .withControllerHeadingAxis(() -> driverXbox.getRightX() * -1,
-                                        () -> driverXbox.getRightY() * -1)
+public SwerveInputStream driveDirectAngle =
+    driveAngularVelocity.copy()
+                        .withControllerHeadingAxis(
+                                () -> {
+                                        double x = -driverXbox.getRightX();
+                                        var alliance = DriverStation.getAlliance();
+
+                                        if (alliance.isPresent()
+                                                && alliance.get() == DriverStation.Alliance.Red) {
+                                        x *= -1;
+                                        }
+                                        return x;
+                                },
+                                () -> {
+                                        double y = -driverXbox.getRightY();
+                                        var alliance = DriverStation.getAlliance();
+
+                                        if (alliance.isPresent()
+                                                && alliance.get() == DriverStation.Alliance.Red) {
+                                        y *= -1;
+                                        }
+                                        return y;
+                                }
+                                )
                         .headingWhile(true);
 
         /**
