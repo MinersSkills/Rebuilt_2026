@@ -7,7 +7,6 @@ package frc.robot;
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.path.PathConstraints;
-
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.util.Units;
@@ -24,7 +23,6 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.shooter.SetShooterScore;
 import frc.robot.commands.swervedrive.drivebase.DriveToPose;
-import frc.robot.generalconstants.FieldConstants;
 import frc.robot.joystick.KeyboardController;
 import frc.robot.poseflipper.PoseFlipper;
 import frc.robot.subsystems.shooter.Shooter;
@@ -137,7 +135,7 @@ public class RobotContainer {
      * Flight joysticks}.
      */
     private void configureBindings() {
-        driveDirectAngle.aim(FieldConstants.HubCenter);
+        driveDirectAngle.aim(PoseFlipper.hubCenter());
 
         Command driveFieldOrientedDirectAngle = drivebase.driveFieldOriented(driveDirectAngle);
         drivebase.setDefaultCommand(driveFieldOrientedDirectAngle);
