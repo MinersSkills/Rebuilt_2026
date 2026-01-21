@@ -53,6 +53,18 @@ public class PoseFlipper {
         return bluePose;
     }
 
+        public static Pose2d hubCenter() {
+        Pose2d bluePose = FieldConstants.HubCenter;
+
+        Optional<Alliance> alliance = DriverStation.getAlliance();
+
+        if (alliance.isPresent() && alliance.get() == Alliance.Red) {
+            return blueToRed(bluePose);
+        }
+
+        return bluePose;
+    }
+
     public static Pose2d blueToRed(Pose2d bluePose) {
         double xRed = FIELD_LENGTH_METERS - bluePose.getX();
         double yRed = bluePose.getY();
