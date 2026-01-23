@@ -17,10 +17,14 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.shooter.SetShooterScore;
+import frc.robot.commands.intake.SetIntakeDown;
+import frc.robot.commands.intake.SetIntakeUp;
+import frc.robot.commands.intake.SetWheelsOff;
+import frc.robot.commands.intake.SetWheelsOn;
 import frc.robot.commands.swervedrive.drivebase.DriveToPose;
 import frc.robot.generalconstants.FieldConstants;
 import frc.robot.joystick.KeyboardController;
+import frc.robot.subsystems.intake.Intake;
 import frc.robot.subsystems.shooter.Shooter;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import java.io.File;
@@ -38,6 +42,8 @@ public class RobotContainer {
     SendableChooser<Command> autoChooser;
 
     Shooter shooter;
+
+    Intake intake = new Intake();
 
     // Replace with CommandPS4Controller or CommandJoystick if needed
     final CommandXboxController driverXbox = new CommandXboxController(0);
@@ -115,6 +121,10 @@ public class RobotContainer {
 
         DriverStation.silenceJoystickConnectionWarning(true);
         NamedCommands.registerCommand("test", Commands.print("I EXIST"));
+        NamedCommands.registerCommand("IntakeUp", new SetIntakeUp(intake));
+        NamedCommands.registerCommand("IntakeDown", new SetIntakeDown(intake));
+        NamedCommands.registerCommand("IntakeOn", new SetWheelsOn(intake));
+        NamedCommands.registerCommand("IntakeOff", new SetWheelsOff(intake));
     }
 
     /**
@@ -136,12 +146,28 @@ public class RobotContainer {
         Command driveFieldOrientedDirectAngle = drivebase.driveFieldOriented(driveDirectAngle);
         drivebase.setDefaultCommand(driveFieldOrientedDirectAngle);
 
+
         // COMANDOS PILOTOS//
 
         driverXbox.back().onTrue(Commands.runOnce(() -> CommandScheduler.getInstance().cancelAll()));
 
         driverXbox.y().toggleOnTrue(
-                Commands.runEnd(() -> driveDirectAngle.aimWhile(true), () -> driveDirectAngle.aimWhile(false)));
+                 Commands.runEnd(() -> driveDirectAngle.aimWhile(true), () -> driveDirectAngle.aimWhile(false)));
+
+        driverXbox.b().onTrue(
+                Commands.sequence(
+                        new SetIntakeDown(intake),
+                        new SetWheelsOn(intake).withTimeout(5)
+                        // new SetWheelsOff(intake)
+                )
+        );
+
+        driverXbox.x().onTrue(
+                Commands.sequence(
+                new SetIntakeUp(intake),        
+                new SetWheelsOff(intake)
+                )
+        );
                 
 
         // COMANDOS COPILOTO //
@@ -154,9 +180,13 @@ public class RobotContainer {
 
         keyboardController.getLeftTrigger()
                 .onTrue(new DriveToPose(drivebase, FieldConstants.ScorePositionLeft, driveDirectAngle));
+        
+       
 
-        keyboardController.getATrigger()
+        /*  keyboardController.getATrigger()
                 .onTrue(new SetShooterScore(shooter, 1));
+        keyboardController.getBTrigger()
+                .onTrue(new SetWheelsOutake(intake)); */
 
     }
 
