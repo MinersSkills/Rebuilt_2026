@@ -156,8 +156,8 @@ public class RobotContainer {
 
         driverXbox.b().onTrue(
                 Commands.sequence(
-                        new SetIntakeDown(intake),
-                        new SetWheelsOn(intake).withTimeout(5)
+                        new SetIntakeDown(intake)
+                        // new SetWheelsOn(intake).withTimeout(5)
                         // new SetWheelsOff(intake)
                 )
         );
