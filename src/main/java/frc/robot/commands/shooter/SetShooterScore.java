@@ -5,9 +5,11 @@ import frc.robot.subsystems.shooter.Shooter;
 
 public class SetShooterScore extends Command {
     private Shooter shooter;
+    private double speed;
 
-    public SetShooterScore(Shooter shooter){
+    public SetShooterScore(Shooter shooter, double speed){
         this.shooter = shooter;
+        this.speed = speed;
         addRequirements(shooter);
     }
 
@@ -16,7 +18,7 @@ public class SetShooterScore extends Command {
 
     @Override
     public void execute(){
-        shooter.setSpeedScore();
+        shooter.setSpeed(speed);
     }
 
     @Override
@@ -26,6 +28,6 @@ public class SetShooterScore extends Command {
 
     @Override
     public void end(boolean interrupted){
-        shooter.setShooterOff();
+        shooter.setSpeed(speed);
     }
 }

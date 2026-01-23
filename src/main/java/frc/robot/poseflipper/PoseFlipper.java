@@ -11,7 +11,7 @@ import frc.robot.generalconstants.FieldConstants;
 
 public class PoseFlipper {
 
-    private static final double FIELD_LENGTH_METERS = 16.54;
+    private static final double FIELD_LENGTH_METERS = 17.54; // 16.54 talvez
 
     /*
      * INDEPENDET SCORE POSITIONS
@@ -53,8 +53,148 @@ public class PoseFlipper {
         return bluePose;
     }
 
-        public static Pose2d hubCenter() {
-        Pose2d bluePose = FieldConstants.HubCenter;
+        /*
+         * INTAKE POSITIONS
+        */
+
+    public static Pose2d intakePositions_POSES_RIGHT_0() {
+        Pose2d bluePose = FieldConstants.IntakePositions.POSES_RIGHT[0];
+
+        Optional<Alliance> alliance = DriverStation.getAlliance();
+
+        if (alliance.isPresent() && alliance.get() == Alliance.Red) {
+            return blueToRed(bluePose);
+        }
+
+        return bluePose;
+    }
+
+    public static Pose2d intakePositions_POSES_RIGHT_1() {
+        Pose2d bluePose = FieldConstants.IntakePositions.POSES_RIGHT[1];
+
+        Optional<Alliance> alliance = DriverStation.getAlliance();
+
+        if (alliance.isPresent() && alliance.get() == Alliance.Red) {
+            return blueToRed(bluePose);
+        }
+
+        return bluePose;
+    }
+    
+    public static Pose2d intakePositions_POSES_RIGHT_2() {
+        Pose2d bluePose = FieldConstants.IntakePositions.POSES_RIGHT[2];
+
+        Optional<Alliance> alliance = DriverStation.getAlliance();
+
+        if (alliance.isPresent() && alliance.get() == Alliance.Red) {
+            return blueToRed(bluePose);
+        }
+
+        return bluePose;
+    }
+
+    public static Pose2d intakePositions_POSES_LEFT_0() {
+        Pose2d bluePose = FieldConstants.IntakePositions.POSES_LEFT[0];
+
+        Optional<Alliance> alliance = DriverStation.getAlliance();
+
+        if (alliance.isPresent() && alliance.get() == Alliance.Red) {
+            return blueToRed(bluePose);
+        }
+
+        return bluePose;
+    }
+
+    public static Pose2d intakePositions_POSES_LEFT_1() {
+        Pose2d bluePose = FieldConstants.IntakePositions.POSES_LEFT[1];
+
+        Optional<Alliance> alliance = DriverStation.getAlliance();
+
+        if (alliance.isPresent() && alliance.get() == Alliance.Red) {
+            return blueToRed(bluePose);
+        }
+
+        return bluePose;
+    }
+    
+    public static Pose2d intakePositions_POSES_LEFT_2() {
+        Pose2d bluePose = FieldConstants.IntakePositions.POSES_LEFT[2];
+
+        Optional<Alliance> alliance = DriverStation.getAlliance();
+
+        if (alliance.isPresent() && alliance.get() == Alliance.Red) {
+            return blueToRed(bluePose);
+        }
+
+        return bluePose;
+    }
+
+    /*
+     * SHOOTER POSITIONS
+    */
+
+    public static Pose2d shooterPositions_POSES_RIGHT_0() {
+        Pose2d bluePose = FieldConstants.ShooterPositions.POSES_RIGHT[0];
+
+        Optional<Alliance> alliance = DriverStation.getAlliance();
+
+        if (alliance.isPresent() && alliance.get() == Alliance.Red) {
+            return blueToRed(bluePose);
+        }
+
+        return bluePose;
+    }
+
+    public static Pose2d shooterPositions_POSES_RIGHT_1() {
+        Pose2d bluePose = FieldConstants.ShooterPositions.POSES_RIGHT[1];
+
+        Optional<Alliance> alliance = DriverStation.getAlliance();
+
+        if (alliance.isPresent() && alliance.get() == Alliance.Red) {
+            return blueToRed(bluePose);
+        }
+
+        return bluePose;
+    }
+
+    public static Pose2d shooterPositions_POSES_RIGHT_2() {
+        Pose2d bluePose = FieldConstants.ShooterPositions.POSES_RIGHT[2];
+
+        Optional<Alliance> alliance = DriverStation.getAlliance();
+
+        if (alliance.isPresent() && alliance.get() == Alliance.Red) {
+            return blueToRed(bluePose);
+        }
+
+        return bluePose;
+    }
+
+    public static Pose2d shooterPositions_POSES_LEFT_0() {
+        Pose2d bluePose = FieldConstants.ShooterPositions.POSES_LEFT[0];
+
+        Optional<Alliance> alliance = DriverStation.getAlliance();
+
+        if (alliance.isPresent() && alliance.get() == Alliance.Red) {
+            return blueToRed(bluePose);
+        }
+
+        return bluePose;
+    }
+
+    public static Pose2d shooterPositions_POSES_LEFT_1() {
+        Pose2d bluePose = FieldConstants.ShooterPositions.POSES_LEFT[1];
+
+        Optional<Alliance> alliance = DriverStation.getAlliance();
+
+        if (alliance.isPresent() && alliance.get() == Alliance.Red) {
+            return blueToRed(bluePose);
+        }
+
+        return bluePose;
+    }
+
+    public static Pose2d shooterPositions_POSES_LEFT_2() {
+        Pose2d bluePose = FieldConstants.ShooterPositions.POSES_LEFT[2];
 
         Optional<Alliance> alliance = DriverStation.getAlliance();
 
