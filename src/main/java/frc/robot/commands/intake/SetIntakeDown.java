@@ -1,6 +1,7 @@
 package frc.robot.commands.intake;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.generalconstants.IntakeConstants;
 import frc.robot.subsystems.intake.Intake;
 
 public class SetIntakeDown extends Command {
@@ -22,6 +23,10 @@ public class SetIntakeDown extends Command {
 
     @Override
     public boolean isFinished(){
-        return false;
+        if (intake.intakeEncoder.getPosition() <= IntakeConstants.Setpoints.POSITION_DOWN){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
