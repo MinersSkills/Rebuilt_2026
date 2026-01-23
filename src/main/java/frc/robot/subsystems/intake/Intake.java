@@ -7,6 +7,7 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.generalconstants.IntakeConstants;
@@ -15,16 +16,18 @@ public class Intake extends SubsystemBase {
     private SparkMaxConfig motorIntakeConfig;
     private SparkMaxConfig motorIntakeWheelsConfig;
 
-    public static SparkMax intake = new SparkMax(2, MotorType.kBrushless);
-    public static SparkMax intakeWheels = new SparkMax(3, MotorType.kBrushless);
+    public static SparkMax intake = new SparkMax(22, MotorType.kBrushless);
+    public static SparkMax intakeWheels = new SparkMax(8, MotorType.kBrushless);
 
     public RelativeEncoder intakeEncoder;
+
+    XboxController controller = new XboxController(0);
 
     public Intake(){
         // Intake articulation 
         motorIntakeConfig = new SparkMaxConfig();
         motorIntakeConfig.idleMode(IdleMode.kBrake);
-        motorIntakeConfig.inverted(false);
+        motorIntakeConfig.inverted(true);
         motorIntakeConfig.encoder.positionConversionFactor(1);
 
         intake.configure(motorIntakeConfig, null, PersistMode.kNoPersistParameters);
@@ -70,5 +73,6 @@ public class Intake extends SubsystemBase {
 
     public void dashboard(){
         SmartDashboard.putNumber("Intake position", intakeEncoder.getPosition());
+        SmartDashboard.putNumber("Setpoint", IntakeConstants.Setpoints.POSITION_DOWN);
     }
 }
