@@ -154,13 +154,13 @@ public class RobotContainer {
         driverXbox.y().toggleOnTrue(
                  Commands.runEnd(() -> driveDirectAngle.aimWhile(true), () -> driveDirectAngle.aimWhile(false)));
 
-        // driverXbox.b().onTrue(
-        //         Commands.sequence(
-        //                 new SetIntakeDown(intake),
-        //                 new SetWheelsOn(intake).withTimeout(5)
-        //                 // new SetWheelsOff(intake)
-        //         )
-        // );
+        driverXbox.b().onTrue(
+                Commands.sequence(
+                        new SetIntakeDown(intake),
+                        new SetWheelsOn(intake).withTimeout(5)
+                        // new SetWheelsOff(intake)
+                )
+        );
 
         driverXbox.x().onTrue(
                 Commands.sequence(
