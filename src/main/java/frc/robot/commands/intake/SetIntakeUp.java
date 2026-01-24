@@ -19,6 +19,7 @@ public class SetIntakeUp extends Command {
     @Override
     public void execute(){
         intake.setIntakeUp();
+        intake.setWheelsOff();
     }
 
     @Override
