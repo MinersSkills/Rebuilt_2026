@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.subsystems.intake.Intake;
+import frc.robot.subsystems.shooter.Shooter;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to each mode, as
@@ -27,6 +28,8 @@ public class Robot extends TimedRobot
   private Timer disabledTimer;
 
   Intake intake = new Intake();
+
+  Shooter shooter = new Shooter();
 
   public Robot()
   {
@@ -144,6 +147,7 @@ public class Robot extends TimedRobot
   @Override
   public void teleopPeriodic()
   {
+    shooter.shootState();
   }
 
   @Override
