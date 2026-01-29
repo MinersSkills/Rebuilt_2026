@@ -10,18 +10,20 @@ public class Indexer extends SubsystemBase{
 
     private VictorSPX indexer;
 
-    private XboxController driver = new XboxController(1);
+    private XboxController driver = new XboxController(0);
 
     public Indexer(){
-        indexer = new VictorSPX(20);
-        indexer.setInverted(false);
+        indexer = new VictorSPX(6);
+
+        indexer.setInverted(true);
     }
 
     public void setIndexerTest(){
         if (driver.getAButtonPressed()){
-            setIndexerOn();
-        } else if(driver.getXButtonPressed()){
-            setIndexerOff();
+            indexer.set(ControlMode.PercentOutput, 0.);
+        } 
+        if(driver.getXButtonPressed()){
+            indexer.set(ControlMode.PercentOutput, 0);
         }
     }
 
