@@ -17,12 +17,15 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.indexer.SetIndexerOn;
 import frc.robot.commands.intake.SetIntakeDown;
 import frc.robot.commands.intake.SetIntakeUp;
 import frc.robot.commands.intake.SetWheelsOn;
+import frc.robot.commands.shooter.SetShooterScore;
 import frc.robot.commands.swervedrive.drivebase.DriveToPose;
 import frc.robot.generalconstants.FieldConstants;
 import frc.robot.joystick.KeyboardController;
+import frc.robot.subsystems.indexer.Indexer;
 import frc.robot.subsystems.intake.Intake;
 import frc.robot.subsystems.shooter.Shooter;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
@@ -40,9 +43,11 @@ import swervelib.SwerveInputStream;
 public class RobotContainer {
         SendableChooser<Command> autoChooser;
 
-        Shooter shooter;
+        Shooter shooter = new Shooter();
 
         Intake intake = new Intake();
+
+        Indexer indexer = new Indexer();
 
         // Replace with CommandPS4Controller or CommandJoystick if needed
         final CommandXboxController driverXbox = new CommandXboxController(0);
@@ -142,6 +147,8 @@ public class RobotContainer {
                 NamedCommands.registerCommand("IntakeUp", new SetIntakeUp(intake));
                 NamedCommands.registerCommand("IntakeDown", new SetIntakeDown(intake));
                 NamedCommands.registerCommand("IntakeOn", new SetWheelsOn(intake));
+                NamedCommands.registerCommand("IndexerOn", new SetIndexerOn(indexer));
+                NamedCommands.registerCommand("ShooterOn", new SetShooterScore(shooter, drivebase));
         }
 
         /**
@@ -173,13 +180,13 @@ public class RobotContainer {
                                         () -> driveDirectAngle.aimWhile(false))
                 );
 
-                driverXbox.b().onTrue(
-                                Commands.sequence(
-                                                new SetIntakeDown(intake),
-                                                new SetWheelsOn(intake).withTimeout(5),
-                                        new SetIntakeUp(intake)
-                                )
-                );
+                // driverXbox.b().onTrue(
+                //                 Commands.sequence(
+                //                                 new SetIntakeDown(intake),
+                //                                 new SetWheelsOn(intake).withTimeout(5),
+                //                         new SetIntakeUp(intake)
+                //                 )
+                // );
 
 
                 // COMANDOS COPILOTO //
