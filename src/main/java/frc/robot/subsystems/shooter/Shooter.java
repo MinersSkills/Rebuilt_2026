@@ -37,8 +37,8 @@ public class Shooter extends SubsystemBase{
         double pov = driverXbox.getPOV();
 
         if (pov == 0){
-            shooter2.set(0.9);
-            shooter3.set(0.9);
+            shooter2.set(1);
+            shooter3.set(1);
         } else if (pov == 180){
             shooter1.set(0);
             shooter2.set(0);

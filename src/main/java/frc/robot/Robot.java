@@ -152,6 +152,7 @@ public class Robot extends TimedRobot
   {
     shooter.shootState();
     indexer.setIndexerTest();
+    intake.setIntakeTest();
   }
 
   @Override

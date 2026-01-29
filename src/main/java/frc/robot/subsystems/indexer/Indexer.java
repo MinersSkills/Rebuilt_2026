@@ -19,10 +19,9 @@ public class Indexer extends SubsystemBase{
     }
 
     public void setIndexerTest(){
-        if (driver.getAButtonPressed()){
-            indexer.set(ControlMode.PercentOutput, 0.);
-        } 
-        if(driver.getXButtonPressed()){
+        if (driver.getAButton()){
+            indexer.set(ControlMode.PercentOutput, 0.5);
+        } else{
             indexer.set(ControlMode.PercentOutput, 0);
         }
     }

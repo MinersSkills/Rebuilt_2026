@@ -42,6 +42,14 @@ public class Intake extends SubsystemBase {
         intakeEncoder = intake.getEncoder();
     }
 
+    public void setIntakeTest(){
+        if (controller.getXButton()){
+            intakeWheels.set(0.75);
+        } else {
+            intakeWheels.set(0);
+        }
+    }
+
     public void setSetpoint(double setpoint){
         motorIntakeConfig.closedLoop.pid(IntakeConstants.Pid.KP, 
                                          IntakeConstants.Pid.KI, 
