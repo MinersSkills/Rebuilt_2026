@@ -8,24 +8,24 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.003817663817664,
-        "y": 6.77408831908832
+        "x": 6.874615384615384,
+        "y": 7.872307692307693
       },
       "isLocked": false,
       "linkedName": "RotaEsquerda-ZonaNeutraEsquerda_coletaLastPoint"
     },
     {
       "anchor": {
-        "x": 4.53605413105413,
-        "y": 7.497621082621083
+        "x": 4.548974358974359,
+        "y": 7.600982905982907
       },
       "prevControl": {
-        "x": 5.813579473763781,
-        "y": 7.56242309275853
+        "x": 5.933610536831081,
+        "y": 7.600982905982907
       },
       "nextControl": {
-        "x": 2.753062678062677,
-        "y": 7.407179487179486
+        "x": 2.9985470085470087,
+        "y": 7.600982905982907
       },
       "isLocked": false,
       "linkedName": null
@@ -36,21 +36,26 @@
         "y": 5.589857142857142
       },
       "prevControl": {
-        "x": 2.4558974358974366,
-        "y": 6.399401709401709
+        "x": 2.3266951566951573,
+        "y": 7.83354700854701
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "RotaEsquerda-Inicial_lastPoint"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.6451033243486076,
+      "rotationDegrees": 90.03328678460164
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 1.0,
-    "maxAcceleration": 1.0,
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -58,13 +63,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -43.0
+    "rotation": 130.0
   },
   "reversed": false,
   "folder": "RotaEsquerda-ZonaNeutraEsquerda",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -90.95484125387219
+    "rotation": -90.0
   },
   "useDefaultConstraints": true
 }

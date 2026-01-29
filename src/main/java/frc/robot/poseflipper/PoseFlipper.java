@@ -17,6 +17,18 @@ public class PoseFlipper {
      * INDEPENDET SCORE POSITIONS
     */
 
+    public static Pose2d hubCenterPosition() {
+        Pose2d bluePose = FieldConstants.HubCenter;
+
+        Optional<Alliance> alliance = DriverStation.getAlliance();
+
+        if (alliance.isPresent() && alliance.get() == Alliance.Red) {
+            return blueToRed(bluePose);
+        }
+
+        return bluePose;
+    }
+
     public static Pose2d scorePositionCenter() {
         Pose2d bluePose = FieldConstants.ScorePositionCenter;
 

@@ -25,6 +25,7 @@ import frc.robot.commands.shooter.SetShooterScore;
 import frc.robot.commands.swervedrive.drivebase.DriveToPose;
 import frc.robot.generalconstants.FieldConstants;
 import frc.robot.joystick.KeyboardController;
+import frc.robot.poseflipper.PoseFlipper;
 import frc.robot.subsystems.indexer.Indexer;
 import frc.robot.subsystems.intake.Intake;
 import frc.robot.subsystems.shooter.Shooter;
@@ -165,7 +166,7 @@ public class RobotContainer {
          * Flight joysticks}.
          */
         private void configureBindings() {
-                driveDirectAngle.aim(FieldConstants.HubCenter);
+                driveDirectAngle.aim(PoseFlipper.hubCenterPosition());
 
                 Command driveFieldOrientedDirectAngle = drivebase.driveFieldOriented(driveDirectAngle);
                 drivebase.setDefaultCommand(driveFieldOrientedDirectAngle);
