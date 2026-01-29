@@ -53,7 +53,7 @@
   "folder": "RotaEsquerda-ZonaNeutraEsquerda",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 130.0
+    "rotation": 125.59419627187359
   },
   "useDefaultConstraints": true
 }
