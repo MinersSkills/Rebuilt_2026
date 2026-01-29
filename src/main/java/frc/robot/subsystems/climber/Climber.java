@@ -45,5 +45,7 @@ public class Climber extends SubsystemBase{
         setSetpoint(10);
     }
 
-    
+    public void setClimberDown(){
+        setSetpoint(0);
+    }
 }
