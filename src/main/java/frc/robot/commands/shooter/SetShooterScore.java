@@ -9,7 +9,7 @@ public class SetShooterScore extends Command {
     private double poseX;
     private SwerveSubsystem swerve;
 
-    public SetShooterScore(Shooter shooter, double speed, SwerveSubsystem swerve){
+    public SetShooterScore(Shooter shooter, SwerveSubsystem swerve){
         this.shooter = shooter;
         this.swerve  = swerve;
 
