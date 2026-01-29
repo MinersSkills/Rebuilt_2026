@@ -29,4 +29,6 @@ public class Climber extends SubsystemBase{
         // Encoder
         encoder = climber.getEncoder();
     }
+
+    public void SetClimber() { };
 }
