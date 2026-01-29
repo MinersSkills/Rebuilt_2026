@@ -3,6 +3,7 @@ package frc.robot.subsystems.climber;
 import com.revrobotics.PersistMode;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
@@ -28,6 +29,14 @@ public class Climber extends SubsystemBase{
 
         // Encoder
         encoder = climber.getEncoder();
+    }
+
+    public void setSetpoint(double setpoint){
+        motorClimberConfig.closedLoop.pid(0, 
+                                          0,  
+                                          0);
+        climber.configure(motorClimberConfig, null, PersistMode.kNoPersistParameters);
+        climber.getClosedLoopController().setSetpoint(setpoint, ControlType.kPosition);
     }
 
     public void SetClimber() { };
