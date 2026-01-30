@@ -33,15 +33,15 @@
     {
       "anchor": {
         "x": 2.8279999999999994,
-        "y": 2.45
+        "y": 2.87
       },
       "prevControl": {
         "x": 2.7972583132444164,
-        "y": 2.201897302119825
+        "y": 2.621897302119825
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Direita-atirar"
     }
   ],
   "rotationTargets": [],
@@ -58,7 +58,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 41.36570230784257
+    "rotation": 33.785586453984145
   },
   "reversed": false,
   "folder": "Direta-ZonaNeutra",

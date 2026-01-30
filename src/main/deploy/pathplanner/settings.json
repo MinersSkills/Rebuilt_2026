@@ -4,6 +4,8 @@
   "holonomicMode": true,
   "pathFolders": [
     "Centro-Deposito",
+    "Centro-PontoDeApoio",
+    "Centro-ZonaNeutraEsquerda",
     "Direta-Completo",
     "Direta-Deposito",
     "Direta-PontoDeApoio",
@@ -12,7 +14,7 @@
     "Esquerda-Deposito",
     "Esquerda-PontoDeApoio",
     "Esquerda-ZonaNeutra",
-    "Centro-PontoDeApoio"
+    "Centro-ZonaNeutraDireita"
   ],
   "autoFolders": [
     "Direita",

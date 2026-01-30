@@ -1,0 +1,105 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.6,
+        "y": 4.0
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.1357321428571425,
+        "y": 3.4357321428571423
+      },
+      "isLocked": false,
+      "linkedName": "Centro-ponto-inicial"
+    },
+    {
+      "anchor": {
+        "x": 3.6,
+        "y": 0.698535714285714
+      },
+      "prevControl": {
+        "x": 3.1316436669989347,
+        "y": 0.860331538413355
+      },
+      "nextControl": {
+        "x": 4.490803571428572,
+        "y": 0.39080357142857114
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.719321428571428,
+        "y": 1.3787857142857138
+      },
+      "prevControl": {
+        "x": 7.719321428572218,
+        "y": 0.7487883622403398
+      },
+      "nextControl": {
+        "x": 7.719321428570677,
+        "y": 1.9780535714291694
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.719321428571428,
+        "y": 3.4357321428571423
+      },
+      "prevControl": {
+        "x": 7.719321428570677,
+        "y": 2.9498392857148836
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Direita-zonaNeutra-coleta-ultimoPonto"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1.706546275395037,
+      "rotationDegrees": 90.0
+    }
+  ],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 2.10989010989011,
+      "maxWaypointRelativePos": 3.0,
+      "constraints": {
+        "maxVelocity": 1.5,
+        "maxAcceleration": 1.5,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 90.0
+  },
+  "reversed": false,
+  "folder": "Centro-ZonaNeutraDireita",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}
