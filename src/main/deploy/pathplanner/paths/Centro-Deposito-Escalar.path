@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 2.8279999999999994,
+        "y": 5.444089285714285
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.174689524185563,
+        "y": 5.645865534627667
+      },
+      "isLocked": false,
+      "linkedName": "Esquerda-atirar-ultimoPonto"
+    },
+    {
+      "anchor": {
+        "x": 1.4981876074501057,
+        "y": 4.0517245107249495
+      },
+      "prevControl": {
+        "x": 1.2723766754583221,
+        "y": 4.159006489607715
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Esquerda-escalar-ultimoPonto"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": "Centro-Deposito",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -37.288107587341095
+  },
+  "useDefaultConstraints": true
+}
