@@ -23,7 +23,6 @@ import frc.robot.commands.intake.SetIntakeUp;
 import frc.robot.commands.intake.SetWheelsOn;
 import frc.robot.commands.shooter.SetShooterScore;
 import frc.robot.commands.swervedrive.drivebase.DriveToPose;
-import frc.robot.generalconstants.FieldConstants;
 import frc.robot.joystick.KeyboardController;
 import frc.robot.poseflipper.PoseFlipper;
 import frc.robot.subsystems.indexer.Indexer;
@@ -187,16 +186,15 @@ public class RobotContainer {
                 ); // lock aim in the hub
 
                 driverXbox.b().onTrue(
-                        new DriveToPose(drivebase, FieldConstants.ScorePositionRight,
-                                                driveDirectAngle)
+                        new DriveToPose(drivebase, PoseFlipper.scorePositionRight(), driveDirectAngle)
                 ); // auto score by the right
 
                 driverXbox.a().onTrue(
-                        new DriveToPose(drivebase, FieldConstants.ScorePositionCenter, driveDirectAngle)
+                        new DriveToPose(drivebase, PoseFlipper.scorePositionRight(), driveDirectAngle)
                 ); // auto score by the center
 
                 driverXbox.x().onTrue(
-                        new DriveToPose(drivebase, FieldConstants.ScorePositionLeft, driveDirectAngle)
+                        new DriveToPose(drivebase, PoseFlipper.scorePositionLeft(), driveDirectAngle)
                 ); // auto score by the left
 
                 driverXbox.leftBumper().whileTrue(slowDriveCommand); // slow down the translation move
