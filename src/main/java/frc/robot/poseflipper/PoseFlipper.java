@@ -11,7 +11,7 @@ import frc.robot.generalconstants.FieldConstants;
 
 public class PoseFlipper {
 
-    private static final double FIELD_LENGTH_METERS = 17.54; // 16.54 talvez
+    private static final double FIELD_LENGTH_METERS = 16.54;
 
     /*
      * INDEPENDET SCORE POSITIONS
