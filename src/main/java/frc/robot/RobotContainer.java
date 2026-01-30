@@ -66,7 +66,6 @@ public class RobotContainer {
                         () -> -driverXbox.getLeftX())
                         .withControllerRotationAxis(driverXbox::getRightX)
                         .deadband(OperatorConstants.DEADBAND)
-                        .scaleTranslation(1)
                         .scaleRotation(.4)
                         .allianceRelativeControl(true);
 
@@ -97,6 +96,9 @@ public class RobotContainer {
                                                 return y;
                                         })
                         .headingWhile(true);
+
+        SwerveInputStream slowDrive = driveDirectAngle.copy()
+                                        .scaleTranslation(0.5);
 
         /**
          * Clone's the angular velocity input stream and converts it to a robotRelative
@@ -169,6 +171,9 @@ public class RobotContainer {
                 driveDirectAngle.aim(PoseFlipper.hubCenterPosition());
 
                 Command driveFieldOrientedDirectAngle = drivebase.driveFieldOriented(driveDirectAngle);
+
+                Command slowDriveCommand = drivebase.driveFieldOriented(slowDrive);
+
                 drivebase.setDefaultCommand(driveFieldOrientedDirectAngle);
 
                 // COMANDOS PILOTOS//
@@ -180,6 +185,9 @@ public class RobotContainer {
                         Commands.runEnd(() -> driveDirectAngle.aimWhile(true),
                                         () -> driveDirectAngle.aimWhile(false))
                 );
+
+                driverXbox.leftBumper().whileTrue(slowDriveCommand);
+
 
                 // driverXbox.b().onTrue(
                 //                 Commands.sequence(
