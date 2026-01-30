@@ -1,0 +1,70 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 7.719321428571428,
+        "y": 3.4357321428571423
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 7.8165,
+        "y": 1.8322857142857139
+      },
+      "isLocked": false,
+      "linkedName": "Direita-zonaNeutra-coleta-ultimoPonto"
+    },
+    {
+      "anchor": {
+        "x": 3.6378214285714288,
+        "y": 0.6499464285714283
+      },
+      "prevControl": {
+        "x": 6.569375,
+        "y": 0.4231964285714287
+      },
+      "nextControl": {
+        "x": 3.3885659300422186,
+        "y": 0.669225859396892
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.8279999999999994,
+        "y": 2.45
+      },
+      "prevControl": {
+        "x": 2.7972583132444164,
+        "y": 2.201897302119825
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 41.36570230784257
+  },
+  "reversed": false,
+  "folder": "Direta-ZonaNeutra",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 90.0
+  },
+  "useDefaultConstraints": true
+}
