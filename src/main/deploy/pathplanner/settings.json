@@ -3,11 +3,12 @@
   "robotLength": 0.68,
   "holonomicMode": true,
   "pathFolders": [
+    "Direta-ZonaNeutra",
     "Esquerda-Completo",
     "Esquerda-Deposito",
     "Esquerda-PontoDeApoio",
     "Esquerda-ZonaNeutra",
-    "Direta-ZonaNeutra"
+    "Direta-PontoDeApoio"
   ],
   "autoFolders": [
     "Esquerda",
