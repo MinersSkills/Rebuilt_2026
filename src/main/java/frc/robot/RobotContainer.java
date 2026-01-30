@@ -184,10 +184,22 @@ public class RobotContainer {
 
                         Commands.runEnd(() -> driveDirectAngle.aimWhile(true),
                                         () -> driveDirectAngle.aimWhile(false))
-                );
+                ); // lock aim in the hub
 
-                driverXbox.leftBumper().whileTrue(slowDriveCommand);
+                driverXbox.b().onTrue(
+                        new DriveToPose(drivebase, FieldConstants.ScorePositionRight,
+                                                driveDirectAngle)
+                ); // auto score by the right
 
+                driverXbox.a().onTrue(
+                        new DriveToPose(drivebase, FieldConstants.ScorePositionCenter, driveDirectAngle)
+                ); // auto score by the center
+
+                driverXbox.x().onTrue(
+                        new DriveToPose(drivebase, FieldConstants.ScorePositionLeft, driveDirectAngle)
+                ); // auto score by the left
+
+                driverXbox.leftBumper().whileTrue(slowDriveCommand); // slow down the translation move
 
                 // driverXbox.b().onTrue(
                 //                 Commands.sequence(
@@ -199,17 +211,6 @@ public class RobotContainer {
 
 
                 // COMANDOS COPILOTO //
-
-                keyboardController.getRightTrigger()
-                                .onTrue(new DriveToPose(drivebase, FieldConstants.ScorePositionRight,
-                                                driveDirectAngle));
-
-                keyboardController.getUpTrigger()
-                                .onTrue(new DriveToPose(drivebase, FieldConstants.ScorePositionCenter,
-                                                driveDirectAngle));
-
-                keyboardController.getLeftTrigger()
-                                .onTrue(new DriveToPose(drivebase, FieldConstants.ScorePositionLeft, driveDirectAngle));
 
                 /*
                  * keyboardController.getATrigger()
