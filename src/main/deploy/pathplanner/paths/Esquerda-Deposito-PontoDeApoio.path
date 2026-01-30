@@ -8,24 +8,24 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.5816384275406827,
-        "y": 5.776231708953173
+        "x": 2.3583035714220273,
+        "y": 5.929982142858284
       },
       "isLocked": false,
       "linkedName": "Deposito-coleta"
     },
     {
       "anchor": {
-        "x": 2.8279999999999994,
-        "y": 5.444089285714285
+        "x": 0.3499464285714282,
+        "y": 0.698535714285714
       },
       "prevControl": {
-        "x": 1.6384474347852747,
-        "y": 5.697079540888508
+        "x": 2.180142857136313,
+        "y": 1.184428571429712
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Esquerda-atirar-ultimoPonto"
+      "linkedName": "PontoDeApoio-coleta"
     }
   ],
   "rotationTargets": [],
@@ -42,10 +42,10 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -37.288107587341095
+    "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Esquerda-Deposito",
+  "folder": "Esquerda-Completo",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 0.0

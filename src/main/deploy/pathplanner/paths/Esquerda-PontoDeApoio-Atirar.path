@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.4037532227431545,
-        "y": 5.888782943170756
+        "x": 0.3499464285714282,
+        "y": 0.698535714285714
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.5816384275406827,
-        "y": 5.776231708953173
+        "x": 0.8774253059645689,
+        "y": 1.0837139629675903
       },
       "isLocked": false,
-      "linkedName": "Deposito-coleta"
+      "linkedName": "PontoDeApoio-coleta"
     },
     {
       "anchor": {
         "x": 2.8279999999999994,
-        "y": 5.444089285714285
+        "y": 2.87
       },
       "prevControl": {
-        "x": 1.6384474347852747,
-        "y": 5.697079540888508
+        "x": 2.5981349672310246,
+        "y": 2.6927554316011726
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Esquerda-atirar-ultimoPonto"
+      "linkedName": "Direita-atirar"
     }
   ],
   "rotationTargets": [],
@@ -42,10 +42,10 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -37.288107587341095
+    "rotation": 33.785586453984145
   },
   "reversed": false,
-  "folder": "Esquerda-Deposito",
+  "folder": "Esquerda-PontoDeApoio",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 0.0
