@@ -190,7 +190,7 @@ public class RobotContainer {
                 ); // auto score by the right
 
                 driverXbox.a().onTrue(
-                        new DriveToPose(drivebase, PoseFlipper.scorePositionRight(), driveDirectAngle)
+                        new DriveToPose(drivebase, PoseFlipper.scorePositionCenter(), driveDirectAngle)
                 ); // auto score by the center
 
                 driverXbox.x().onTrue(
