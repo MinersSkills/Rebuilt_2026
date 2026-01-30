@@ -8,24 +8,24 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.1029576027051657,
-        "y": 5.678473468085094
+        "x": 3.261151697779533,
+        "y": 5.724112813405608
       },
       "isLocked": false,
       "linkedName": "Esquerda-atirar-ultimoPonto"
     },
     {
       "anchor": {
-        "x": 3.6702142857142857,
-        "y": 7.582017857142857
+        "x": 1.4981876074501057,
+        "y": 4.0517245107249495
       },
       "prevControl": {
-        "x": 3.4988934936498897,
-        "y": 7.399948677415952
+        "x": 1.282120867695526,
+        "y": 3.92596615524975
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Esquerda-posicao-inicial"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
@@ -45,7 +45,7 @@
     "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Esquerda-ZonaNeutra",
+  "folder": "Esquerda-Deposito",
   "idealStartingState": {
     "velocity": 0,
     "rotation": -37.288107587341095
