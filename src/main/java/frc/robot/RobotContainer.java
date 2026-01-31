@@ -100,7 +100,8 @@ public class RobotContainer {
                                         .scaleTranslation(0.5);
 
         /**
-         * Clone's the angular velocity input stream and converts it to a robotRelative
+         * Clone's the angular velocity inp
+         * ut stream and converts it to a robotRelative
          * input stream.
          */
         SwerveInputStream driveRobotOriented = driveAngularVelocity.copy().robotRelative(true);
