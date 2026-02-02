@@ -97,7 +97,7 @@ public class RobotContainer {
                         .headingWhile(true);
 
         SwerveInputStream slowDrive = driveDirectAngle.copy()
-                                        .scaleTranslation(0.5);
+                                        .scaleTranslation(0.3);
 
         /**
          * Clone's the angular velocity inp
