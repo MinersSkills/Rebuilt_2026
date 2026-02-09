@@ -15,8 +15,8 @@ public class Intake extends SubsystemBase {
     private SparkMaxConfig motorIntakeConfig;
     private SparkMaxConfig motorIntakeWheelsConfig;
 
-    public static SparkMax intake = new SparkMax(22, MotorType.kBrushless);
-    public static SparkMax intakeWheels = new SparkMax(8, MotorType.kBrushless);
+    public static SparkMax intake = new SparkMax(32, MotorType.kBrushless);
+    public static SparkMax intakeWheels = new SparkMax(22, MotorType.kBrushless);
 
     public RelativeEncoder intakeEncoder;
 
