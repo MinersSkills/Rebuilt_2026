@@ -24,7 +24,7 @@ public class SetIntakeUp extends Command {
 
     @Override
     public boolean isFinished(){
-        if (intake.intakeEncoder.getPosition() <= IntakeConstants.Setpoints.POSITION_UP){
+        if (intake.intakeEncoder.getPosition() <= IntakeConstants.Setpoints.POSITION_UP + 0.5){
             return true;
         } else {
             return false;

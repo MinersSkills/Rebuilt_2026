@@ -1,13 +1,12 @@
 package frc.robot.commands.intake;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.generalconstants.IntakeConstants;
 import frc.robot.subsystems.intake.Intake;
 
-public class SetIntakeDown extends Command {
+public class SetWheelsOff extends Command {
     private Intake intake;
 
-    public SetIntakeDown(Intake intake){
+    public SetWheelsOff(Intake intake){
         this.intake = intake;
 
         addRequirements(intake);
@@ -18,15 +17,11 @@ public class SetIntakeDown extends Command {
 
     @Override
     public void execute(){
-        intake.setIntakeDown();
+        intake.setWheelsOff();
     }
 
     @Override
     public boolean isFinished(){
-        if (intake.intakeEncoder.getPosition() <= IntakeConstants.Setpoints.POSITION_DOWN -0.5){
-            return true;
-        } else {
-            return false;
-        }
+        return false;
     }
 }

@@ -150,7 +150,7 @@ public class Robot extends TimedRobot
   @Override
   public void teleopPeriodic()
   {
-    shooter.shootState();
+    // shooter.shootState();
     indexer.setIndexerTest();
     intake.setIntakeTest();
   }

@@ -14,14 +14,21 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.indexer.SetIndexerOn;
 import frc.robot.commands.intake.SetIntakeDown;
+import frc.robot.commands.intake.SetIntakeMode;
 import frc.robot.commands.intake.SetIntakeUp;
+import frc.robot.commands.intake.SetWheelsOff;
 import frc.robot.commands.intake.SetWheelsOn;
+import frc.robot.commands.intake.SetWheelsOutake;
+import frc.robot.commands.intake.SetWheelsOff;
 import frc.robot.commands.shooter.SetShooterScore;
+import frc.robot.commands.shooter.ShooterDelayTimer;
+import frc.robot.commands.shooter.SetShooterOff;
 import frc.robot.commands.swervedrive.drivebase.DriveToPose;
 import frc.robot.joystick.KeyboardController;
 import frc.robot.poseflipper.PoseFlipper;
@@ -180,25 +187,50 @@ public class RobotContainer {
 
                 driverXbox.back().onTrue(Commands.runOnce(() -> CommandScheduler.getInstance().cancelAll()));
 
-                driverXbox.y().toggleOnTrue(
+                // driverXbox.y().toggleOnTrue(
 
-                        Commands.runEnd(() -> driveDirectAngle.aimWhile(true),
-                                        () -> driveDirectAngle.aimWhile(false))
-                ); // lock aim in the hub
+                //         Commands.runEnd(() -> driveDirectAngle.aimWhile(true),
+                //                         () -> driveDirectAngle.aimWhile(false))
+                // ); // lock aim in the hub
 
-                driverXbox.b().onTrue(
-                        new DriveToPose(drivebase, PoseFlipper.scorePositionRight(), driveDirectAngle)
-                ); // auto score by the right
+                // driverXbox.b().onTrue(
+                //         new DriveToPose(drivebase, PoseFlipper.scorePositionRight(), driveDirectAngle)
+                // ); // auto score by the right
 
-                driverXbox.a().onTrue(
-                        new DriveToPose(drivebase, PoseFlipper.scorePositionCenter(), driveDirectAngle)
-                ); // auto score by the center
+                // driverXbox.a().onTrue(
+                //         new DriveToPose(drivebase, PoseFlipper.scorePositionCenter(), driveDirectAngle)
+                // ); // auto score by the center
 
-                driverXbox.x().onTrue(
-                        new DriveToPose(drivebase, PoseFlipper.scorePositionLeft(), driveDirectAngle)
-                ); // auto score by the left
+                // driverXbox.x().onTrue(
+                //         new DriveToPose(drivebase, PoseFlipper.scorePositionLeft(), driveDirectAngle)
+                // ); // auto score by the left
 
                 driverXbox.leftBumper().whileTrue(slowDriveCommand); // slow down the translation move
+
+                driverXbox.leftTrigger().toggleOnTrue(
+                        new SetIntakeDown(intake)
+                );
+
+                driverXbox.rightTrigger().toggleOnTrue(
+                        new SetIntakeUp(intake)
+                );
+
+                driverXbox.povUp().onTrue(
+                        new ShooterDelayTimer(shooter)
+                );
+
+                driverXbox.povDown().onTrue(
+                        new SetShooterOff(shooter)
+                );
+
+                driverXbox.povLeft().onTrue(
+                        new SetWheelsOutake(intake)
+                );
+
+                driverXbox.povRight().onTrue(
+                        new SetWheelsOff(intake)
+                );
+
 
                 // driverXbox.b().onTrue(
                 //                 Commands.sequence(
@@ -217,6 +249,22 @@ public class RobotContainer {
                  * keyboardController.getBTrigger()
                  * .onTrue(new SetWheelsOutake(intake));
                  */
+
+                //  keyboardController.getITrigger().onTrue(
+                //         new SetIntakeDown(intake)
+                //  );
+
+                //  keyboardController.getUTrigger().onTrue(
+                //         new SetIntakeUp(intake)
+                //  );
+
+                // keyboardController.getOTrigger().onTrue(
+                //         new SetWheelsOn(intake).withTimeout(2)
+                //  );
+
+
+
+
 
         }
 
