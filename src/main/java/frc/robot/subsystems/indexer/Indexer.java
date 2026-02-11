@@ -15,11 +15,11 @@ public class Indexer extends SubsystemBase{
     public Indexer(){
         indexer = new VictorSPX(6);
 
-        indexer.setInverted(true);
+        indexer.setInverted(false);
     }
 
     public void setIndexerTest(){
-        if (driver.getAButton()){
+        if (driver.getYButton()){
             indexer.set(ControlMode.PercentOutput, 0.5);
         } else{
             indexer.set(ControlMode.PercentOutput, 0);
