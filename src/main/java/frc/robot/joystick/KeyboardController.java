@@ -30,7 +30,19 @@ public class KeyboardController {
         return createTrigger("Key.left");
     }
 
-    public Trigger getATrigger(){
-        return createTrigger("a");
+    public Trigger getPTrigger(){
+        return createTrigger("p");
+    }
+
+    public Trigger getOTrigger(){
+        return createTrigger("o");
+    }
+
+    public Trigger getUTrigger(){
+        return createTrigger("u");
+    }
+
+    public Trigger getITrigger(){
+        return createTrigger("i");
     }
 }
