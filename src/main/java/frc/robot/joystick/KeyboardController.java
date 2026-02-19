@@ -45,4 +45,24 @@ public class KeyboardController {
     public Trigger getITrigger(){
         return createTrigger("i");
     }
+
+    public Trigger getQTrigger(){
+        return createTrigger("q");
+    }
+
+    public Trigger getWTrigger(){
+        return createTrigger("w");
+    }
+
+    public Trigger getETrigger(){
+        return createTrigger("e");
+    }
+
+    public Trigger getRTrigger(){
+        return createTrigger("r");
+    }
+
+    public Trigger getTTrigger(){
+        return createTrigger("t");
+    }
 }
