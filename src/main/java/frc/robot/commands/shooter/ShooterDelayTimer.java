@@ -16,7 +16,7 @@ public class ShooterDelayTimer extends Command {
 
     @Override
     public void initialize() {
-        shooter.setSpeedShootFront(1);
+        shooter.setSpeedShootFront();
         timer.reset();
         timer.start();
     }
@@ -24,7 +24,7 @@ public class ShooterDelayTimer extends Command {
     @Override
     public void execute() {
         if (timer.hasElapsed(1.5)) {
-            shooter.setSpeedShootEstrela(1);
+            shooter.setSpeedShootStars();
         }
     }
 
