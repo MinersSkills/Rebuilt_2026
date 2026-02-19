@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.indexer.SetIndexerCounterClock;
 import frc.robot.commands.indexer.SetIndexerOn;
 import frc.robot.commands.intake.SetIntakeDown;
 import frc.robot.commands.intake.SetIntakeMode;
@@ -250,6 +251,17 @@ public class RobotContainer {
                         new SetShooterOff(shooter)
                 ); // turn off the shooter
 
+                keyboardController.getNTrigger().onTrue(
+                        new SetIndexerOn(indexer)
+                ); // set the indexer on
+
+                keyboardController.getMTrigger().onTrue(
+                        new SetIndexerCounterClock(indexer)
+                ); // set the indexer on in counter clock wise
+
+                keyboardController.getCommaTrigger().onTrue(
+                        new SetIndexerOn(indexer)
+                ); // turn off the indexer
         }
 
         /**
