@@ -81,4 +81,16 @@ public class KeyboardController {
     public Trigger getVTrigger(){
         return createTrigger("v");
     }
+
+    public Trigger getNTrigger(){
+        return createTrigger("n");
+    }
+
+    public Trigger getMTrigger(){
+        return createTrigger("m");
+    }
+
+    public Trigger getCommaTrigger(){
+        return createTrigger(",");
+    }
 }
