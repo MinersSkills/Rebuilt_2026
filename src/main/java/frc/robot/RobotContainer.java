@@ -25,9 +25,9 @@ import frc.robot.commands.intake.SetIntakeUp;
 import frc.robot.commands.intake.SetWheelsOff;
 import frc.robot.commands.intake.SetWheelsOn;
 import frc.robot.commands.intake.SetWheelsOutake;
-import frc.robot.commands.intake.SetWheelsOff;
-import frc.robot.commands.shooter.SetShooterScore;
+import frc.robot.commands.shooter.SetShooterStarsOn;
 import frc.robot.commands.shooter.ShooterDelayTimer;
+import frc.robot.commands.shooter.SetShooterFrontOn;
 import frc.robot.commands.shooter.SetShooterOff;
 import frc.robot.commands.swervedrive.drivebase.DriveToPose;
 import frc.robot.joystick.KeyboardController;
@@ -158,7 +158,7 @@ public class RobotContainer {
                 NamedCommands.registerCommand("IntakeDown", new SetIntakeDown(intake));
                 NamedCommands.registerCommand("IntakeOn", new SetWheelsOn(intake));
                 NamedCommands.registerCommand("IndexerOn", new SetIndexerOn(indexer));
-                NamedCommands.registerCommand("ShooterOn", new SetShooterScore(shooter, drivebase));
+                // NamedCommands.registerCommand("ShooterOn", new SetShooterScore(shooter, drivebase));
         }
 
         /**
@@ -211,31 +211,6 @@ public class RobotContainer {
                         new SetIntakeMode(intake, indexer)
                 );
 
-                driverXbox.povUp().onTrue(
-                        new ShooterDelayTimer(shooter, indexer)
-                );
-
-                driverXbox.povDown().onTrue(
-                        new SetShooterOff(shooter)
-                );
-
-                driverXbox.povLeft().onTrue(
-                        new SetWheelsOutake(intake)
-                );
-
-                driverXbox.povRight().onTrue(
-                        new SetWheelsOff(intake)
-                );
-
-
-                // driverXbox.b().onTrue(
-                //                 Commands.sequence(
-                //                                 new SetIntakeDown(intake),
-                //                                 new SetWheelsOn(intake).withTimeout(5),
-                //                         new SetIntakeUp(intake)
-                //                 )
-                // );
-
 
                 // COMANDOS COPILOTO //
 
@@ -258,6 +233,23 @@ public class RobotContainer {
                 keyboardController.getTTrigger().onTrue(
                         new SetWheelsOff(intake)
                 ); // set the wheels off
+
+                keyboardController.getZTrigger().onTrue(
+                        new ShooterDelayTimer(shooter)
+                ); // set shooter on like on scoring
+
+                keyboardController.getXTrigger().onTrue(
+                        new SetShooterFrontOn(shooter)
+                ); // set only the front axis on
+
+                keyboardController.getCTrigger().onTrue(
+                        new SetShooterStarsOn(shooter)
+                ); // set only the starks axis on
+                
+                keyboardController.getVTrigger().onTrue(
+                        new SetShooterOff(shooter)
+                ); // turn off the shooter
+
         }
 
         /**
