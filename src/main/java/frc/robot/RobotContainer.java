@@ -224,6 +224,10 @@ public class RobotContainer {
                         new SetIntakeMode(intake, indexer)
                 ); // prepare the intake to collect
 
+                driverXbox.povRight().onTrue(
+                        new SetIntakeUp(intake)
+                ); // take the intake up
+
                 // COMANDOS COPILOTO //
 
                 keyboardController.getQTrigger().onTrue(
