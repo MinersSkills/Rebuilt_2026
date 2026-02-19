@@ -26,7 +26,7 @@ public class Intake extends SubsystemBase {
         // Intake articulation 
         motorIntakeConfig = new SparkMaxConfig();
         motorIntakeConfig.idleMode(IdleMode.kBrake);
-        motorIntakeConfig.inverted(false);
+        motorIntakeConfig.inverted(true);
         motorIntakeConfig.encoder.positionConversionFactor(1);
 
         intake.configure(motorIntakeConfig, null, PersistMode.kNoPersistParameters);
@@ -44,9 +44,11 @@ public class Intake extends SubsystemBase {
 
     public void setIntakeTest(){
         if (controller.getXButton()){
-            intake.set(0.65);
+            intake.set(0.4);
+        } else if (controller.getBButton()) {
+            intake.set(-0.4);
         } else {
-            intakeWheels.set(0);
+            intake.set(0);
         }
     }
 
@@ -70,7 +72,7 @@ public class Intake extends SubsystemBase {
         intakeWheels.set(IntakeConstants.Speeds.SPEED_INTAKE);
     }
 
-    public void setWheelsOutake(){
+    public void setWheelsOn(){
         intakeWheels.set(IntakeConstants.Speeds.SPEED_OUTAKE);
     }
 
@@ -81,10 +83,5 @@ public class Intake extends SubsystemBase {
     public void dashboard(){
         SmartDashboard.putNumber("Intake position", intakeEncoder.getPosition());
         SmartDashboard.putNumber("Setpoint", IntakeConstants.Setpoints.POSITION_DOWN);
-    }
-
-    @Override
-    public void periodic() {
-        System.out.println(intake.get());
     }
 }
