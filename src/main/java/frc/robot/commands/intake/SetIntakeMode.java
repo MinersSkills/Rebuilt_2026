@@ -30,7 +30,6 @@ public class SetIntakeMode extends Command {
 
     @Override
     public void end(boolean interrupted){
-        intake.setIntakeUp();
         intake.setWheelsOff();
         indexer.setIndexerOff();
     }
