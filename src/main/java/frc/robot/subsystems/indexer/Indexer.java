@@ -27,7 +27,11 @@ public class Indexer extends SubsystemBase{
     }
 
     public void setIndexerOn(){
-        indexer.set(ControlMode.PercentOutput, 1);
+        indexer.set(ControlMode.PercentOutput, 0.5);
+    }
+
+    public void setIndexerCounterClock(){
+        indexer.set(ControlMode.PercentOutput, -0.5);
     }
 
     public void setIndexerOff(){
