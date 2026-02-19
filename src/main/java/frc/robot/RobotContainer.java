@@ -191,11 +191,11 @@ public class RobotContainer {
 
                 driverXbox.back().onTrue(Commands.runOnce(() -> CommandScheduler.getInstance().cancelAll()));
 
-                // driverXbox.y().toggleOnTrue(
+                driverXbox.y().toggleOnTrue(
 
-                //         Commands.runEnd(() -> driveDirectAngle.aimWhile(true),
-                //                         () -> driveDirectAngle.aimWhile(false))
-                // ); // lock aim in the hub
+                        Commands.runEnd(() -> driveDirectAngle.aimWhile(true),
+                                        () -> driveDirectAngle.aimWhile(false))
+                ); // lock aim in the hub
 
                 driverXbox.b().onTrue(
                         Commands.sequence(
