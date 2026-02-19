@@ -65,4 +65,20 @@ public class KeyboardController {
     public Trigger getTTrigger(){
         return createTrigger("t");
     }
+
+    public Trigger getZTrigger(){
+        return createTrigger("z");
+    }
+
+    public Trigger getXTrigger(){
+        return createTrigger("x");
+    }
+
+    public Trigger getCTrigger(){
+        return createTrigger("c");
+    }
+
+    public Trigger getVTrigger(){
+        return createTrigger("v");
+    }
 }
