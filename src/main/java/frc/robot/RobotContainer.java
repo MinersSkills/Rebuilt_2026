@@ -14,10 +14,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Commands;
-import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.ScoreCommand;
 import frc.robot.commands.indexer.SetIndexerCounterClock;
 import frc.robot.commands.indexer.SetIndexerOn;
 import frc.robot.commands.intake.SetIntakeDown;
@@ -33,6 +33,7 @@ import frc.robot.commands.shooter.SetShooterOff;
 import frc.robot.commands.swervedrive.drivebase.DriveToPose;
 import frc.robot.joystick.KeyboardController;
 import frc.robot.poseflipper.PoseFlipper;
+import frc.robot.subsystems.climber.Climber;
 import frc.robot.subsystems.indexer.Indexer;
 import frc.robot.subsystems.intake.Intake;
 import frc.robot.subsystems.shooter.Shooter;
@@ -56,6 +57,8 @@ public class RobotContainer {
         Intake intake = new Intake();
 
         Indexer indexer = new Indexer();
+
+        Climber climber = new Climber();
 
         // Replace with CommandPS4Controller or CommandJoystick if needed
         final CommandXboxController driverXbox = new CommandXboxController(0);
@@ -194,24 +197,32 @@ public class RobotContainer {
                 //                         () -> driveDirectAngle.aimWhile(false))
                 // ); // lock aim in the hub
 
-                // driverXbox.b().onTrue(
-                //         new DriveToPose(drivebase, PoseFlipper.scorePositionRight(), driveDirectAngle)
-                // ); // auto score by the right
+                driverXbox.b().onTrue(
+                        Commands.sequence(
+                                new DriveToPose(drivebase, PoseFlipper.scorePositionRight(), driveDirectAngle),
+                                new ScoreCommand(shooter, indexer, intake)
+                        )
+                ); // auto score by the right
 
-                // driverXbox.a().onTrue(
-                //         new DriveToPose(drivebase, PoseFlipper.scorePositionCenter(), driveDirectAngle)
-                // ); // auto score by the center
+                driverXbox.a().onTrue(
+                        Commands.sequence(
+                                new DriveToPose(drivebase, PoseFlipper.scorePositionCenter(), driveDirectAngle),
+                                new ScoreCommand(shooter, indexer, intake)
+                        )
+                ); // auto score by the center
 
-                // driverXbox.x().onTrue(
-                //         new DriveToPose(drivebase, PoseFlipper.scorePositionLeft(), driveDirectAngle)
-                // ); // auto score by the left
+                driverXbox.x().onTrue(
+                        Commands.sequence(
+                                new DriveToPose(drivebase, PoseFlipper.scorePositionLeft(), driveDirectAngle),
+                                new ScoreCommand(shooter, indexer, intake)      
+                        )
+                ); // auto score by the left
 
                 driverXbox.leftBumper().whileTrue(slowDriveCommand); // slow down the translation move
 
                 driverXbox.leftTrigger().toggleOnTrue(
                         new SetIntakeMode(intake, indexer)
-                );
-
+                ); // prepare the intake to collect
 
                 // COMANDOS COPILOTO //
 
