@@ -17,7 +17,7 @@ public class SetWheelsOutake extends Command {
 
     @Override
     public void execute(){
-        intake.setWheelsOutake();;
+        intake.setWheelsOn();
     }
 
     @Override
