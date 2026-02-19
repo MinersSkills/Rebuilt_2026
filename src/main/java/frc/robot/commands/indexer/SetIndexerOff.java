@@ -3,11 +3,11 @@ package frc.robot.commands.indexer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.indexer.Indexer;
 
-public class SetIndexerOn extends Command{
-    
+public class SetIndexerOff extends Command{
+        
     private Indexer indexer;
 
-    public SetIndexerOn(Indexer indexer){
+    public SetIndexerOff(Indexer indexer){
         this.indexer = indexer;
         addRequirements(indexer);
     }
@@ -17,7 +17,7 @@ public class SetIndexerOn extends Command{
 
     @Override
     public void execute(){
-        indexer.setIndexerOn();
+        indexer.setIndexerOff();
     }
 
     @Override
@@ -30,3 +30,4 @@ public class SetIndexerOn extends Command{
         indexer.setIndexerOff();
     }
 }
+
