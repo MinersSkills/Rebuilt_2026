@@ -208,15 +208,11 @@ public class RobotContainer {
                 driverXbox.leftBumper().whileTrue(slowDriveCommand); // slow down the translation move
 
                 driverXbox.leftTrigger().toggleOnTrue(
-                        new SetIntakeDown(intake)
-                );
-
-                driverXbox.rightTrigger().toggleOnTrue(
-                        new SetIntakeUp(intake)
+                        new SetIntakeMode(intake, indexer)
                 );
 
                 driverXbox.povUp().onTrue(
-                        new ShooterDelayTimer(shooter)
+                        new ShooterDelayTimer(shooter, indexer)
                 );
 
                 driverXbox.povDown().onTrue(
@@ -243,29 +239,25 @@ public class RobotContainer {
 
                 // COMANDOS COPILOTO //
 
-                /*
-                 * keyboardController.getATrigger()
-                 * .onTrue(new SetShooterScore(shooter, 1));
-                 * keyboardController.getBTrigger()
-                 * .onTrue(new SetWheelsOutake(intake));
-                 */
+                keyboardController.getQTrigger().onTrue(
+                        new SetIntakeDown(intake)
+                ); // take the intake down
 
-                //  keyboardController.getITrigger().onTrue(
-                //         new SetIntakeDown(intake)
-                //  );
+                keyboardController.getWTrigger().onTrue(
+                        new SetIntakeUp(intake)
+                ); // take the intake up
 
-                //  keyboardController.getUTrigger().onTrue(
-                //         new SetIntakeUp(intake)
-                //  );
+                keyboardController.getETrigger().onTrue(
+                        new SetWheelsOn(intake)
+                ); // set the wheels on to intake
 
-                // keyboardController.getOTrigger().onTrue(
-                //         new SetWheelsOn(intake).withTimeout(2)
-                //  );
+                keyboardController.getRTrigger().onTrue(
+                        new SetWheelsOutake(intake)
+                ); // set the wheels counter clock wise to outake
 
-
-
-
-
+                keyboardController.getTTrigger().onTrue(
+                        new SetWheelsOff(intake)
+                ); // set the wheels off
         }
 
         /**
