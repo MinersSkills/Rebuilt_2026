@@ -5,6 +5,7 @@ import java.util.Optional;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import frc.robot.generalconstants.FieldConstants;
@@ -12,6 +13,7 @@ import frc.robot.generalconstants.FieldConstants;
 public class PoseFlipper {
 
     private static final double FIELD_LENGTH_METERS = 16.54;
+    private static final double FIELD_WIDTH_METERS = 8.07;
 
     /*
      * INDEPENDET SCORE POSITIONS
@@ -47,7 +49,11 @@ public class PoseFlipper {
         Optional<Alliance> alliance = DriverStation.getAlliance();
 
         if (alliance.isPresent() && alliance.get() == Alliance.Red) {
-            return blueToRed(bluePose);
+            double redX = FIELD_LENGTH_METERS - bluePose.getX();
+            double redY = FIELD_WIDTH_METERS - bluePose.getY();
+            
+            Pose2d redPose = new Pose2d(redX, redY, new Rotation2d(Units.degreesToRadians(-140)));
+            return redPose;
         }
 
         return bluePose;
@@ -59,7 +65,11 @@ public class PoseFlipper {
         Optional<Alliance> alliance = DriverStation.getAlliance();
 
         if (alliance.isPresent() && alliance.get() == Alliance.Red) {
-            return blueToRed(bluePose);
+            double redX = FIELD_LENGTH_METERS - bluePose.getX();
+            double redY = FIELD_WIDTH_METERS - bluePose.getY();
+            
+            Pose2d redPose = new Pose2d(redX, redY, new Rotation2d(Units.degreesToRadians(134)));
+            return redPose;
         }
 
         return bluePose;
