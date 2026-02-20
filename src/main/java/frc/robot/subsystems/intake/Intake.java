@@ -29,6 +29,11 @@ public class Intake extends SubsystemBase {
         motorIntakeConfig.inverted(true);
         motorIntakeConfig.encoder.positionConversionFactor(1);
 
+        // Pid
+        motorIntakeConfig.closedLoop.pid(IntakeConstants.Pid.KP, 
+                                         IntakeConstants.Pid.KI, 
+                                         IntakeConstants.Pid.KD); 
+
         intake.configure(motorIntakeConfig, null, PersistMode.kNoPersistParameters);
 
         // Intake Wheels
@@ -53,11 +58,9 @@ public class Intake extends SubsystemBase {
     }
 
     public void setSetpoint(double setpoint){
-        motorIntakeConfig.closedLoop.pid(IntakeConstants.Pid.KP, 
-                                         IntakeConstants.Pid.KI, 
-                                         IntakeConstants.Pid.KD); 
-        intake.configure(motorIntakeConfig, null, PersistMode.kNoPersistParameters);
-        intake.getClosedLoopController().setSetpoint(setpoint, ControlType.kPosition);
+        intake.getClosedLoopController()
+        .setSetpoint(setpoint,
+                     ControlType.kPosition);
     }
 
     public void setIntakeDown(){
