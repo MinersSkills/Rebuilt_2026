@@ -32,5 +32,6 @@ public class SetIntakeMode extends Command {
     public void end(boolean interrupted){
         intake.setWheelsOff();
         indexer.setIndexerOff();
+        intake.setPivotOff();
     }
 }

@@ -29,4 +29,9 @@ public class SetIntakeDown extends Command {
             return false;
         }
     }
+
+    @Override
+    public void end(boolean interrupted) {
+        intake.setPivotOff();
+    }
 }

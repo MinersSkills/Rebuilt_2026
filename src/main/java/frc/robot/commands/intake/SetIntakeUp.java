@@ -30,4 +30,9 @@ public class SetIntakeUp extends Command {
             return false;
     }
 }
+
+@Override
+public void end(boolean interrupted) { 
+    intake.setPivotOff();
+}
 }
