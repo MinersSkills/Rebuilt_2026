@@ -30,6 +30,7 @@ import frc.robot.commands.shooter.SetShooterStarsOn;
 import frc.robot.commands.shooter.ShooterDelayTimer;
 import frc.robot.commands.shooter.SetShooterFrontOn;
 import frc.robot.commands.shooter.SetShooterOff;
+import frc.robot.commands.swervedrive.drivebase.DriveToNearstPassPosition;
 import frc.robot.commands.swervedrive.drivebase.DriveToPose;
 import frc.robot.joystick.KeyboardController;
 import frc.robot.poseflipper.PoseFlipper;
@@ -227,6 +228,10 @@ public class RobotContainer {
                 driverXbox.povRight().onTrue(
                         new SetIntakeUp(intake)
                 ); // take the intake up
+
+                driverXbox.povDown().onTrue(
+                        new DriveToNearstPassPosition(drivebase, driveDirectAngle)
+                );
 
                 // COMANDOS COPILOTO //
 
