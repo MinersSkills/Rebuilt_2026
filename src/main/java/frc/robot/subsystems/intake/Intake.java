@@ -80,6 +80,10 @@ public class Intake extends SubsystemBase {
         intakeWheels.stopMotor();
     }
 
+    public void setPivotOff(){
+        intake.set(0);
+    }
+
     public void dashboard(){
         SmartDashboard.putNumber("Intake position", intakeEncoder.getPosition());
         SmartDashboard.putNumber("Setpoint", IntakeConstants.Setpoints.POSITION_DOWN);
