@@ -4,16 +4,14 @@ import com.revrobotics.PersistMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Shooter extends SubsystemBase{
     private SparkMaxConfig motorShooterConfig;
     private SparkMaxConfig motorShooterConfigInvertaded;
 
-    private XboxController driverXbox = new XboxController(0);
 
-    public static SparkMax shooter1 = new SparkMax(8, MotorType.kBrushless);
+    public static SparkMax shooter1 = new SparkMax(4, MotorType.kBrushless);
     public static SparkMax shooter2 = new SparkMax(15, MotorType.kBrushless);
     public static SparkMax shooterStars = new SparkMax(6, MotorType.kBrushless);
 
@@ -31,24 +29,6 @@ public class Shooter extends SubsystemBase{
         shooter1.configure(motorShooterConfig, null, PersistMode.kNoPersistParameters);
         shooter2.configure(motorShooterConfig, null, PersistMode.kNoPersistParameters);
         shooterStars.configure(motorShooterConfig, null, PersistMode.kNoPersistParameters);
-    }
-
-
-    public void shootState(){
-        double pov = driverXbox.getPOV();
-
-        if (pov == 0){
-            shooter1.set(1);
-            shooter2.set(1);
-            shooterStars.set(1);
-        } else if (pov == 180){
-            shooter1.set(0);
-            shooter2.set(0);
-            shooterStars.set(0);
-        } else if (pov == 90){
-            // shooter1.set(1);
-        }
-
     }
 
     public void setShooterOff(){
