@@ -59,7 +59,7 @@ public class Intake extends SubsystemBase {
 
     public void setSetpoint(double setpoint){
         intake.getClosedLoopController()
-        .setSetpoint(setpoint,
+              .setSetpoint(setpoint,
                      ControlType.kPosition);
     }
 
