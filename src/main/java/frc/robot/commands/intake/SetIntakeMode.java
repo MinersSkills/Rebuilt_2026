@@ -20,7 +20,7 @@ public class SetIntakeMode extends Command {
     public void initialize() {
         intake.setIntakeDown();
         intake.setWheelsIntake();
-        indexer.setIndexerOn();
+        // indexer.setIndexerOn();
      }
 
     @Override
