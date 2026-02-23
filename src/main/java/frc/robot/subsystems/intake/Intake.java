@@ -42,19 +42,9 @@ public class Intake extends SubsystemBase {
         motorIntakeWheelsConfig.inverted(true);
 
         intakeWheels.configure(motorIntakeConfig, null, PersistMode.kNoPersistParameters);
-
+        
         // Encoder
         intakeEncoder = intake.getEncoder();
-    }
-
-    public void setIntakeTest(){
-        if (controller.getXButton()){
-            intake.set(0.4);
-        } else if (controller.getBButton()) {
-            intake.set(-0.4);
-        } else {
-            intake.set(0);
-        }
     }
 
     public void setSetpoint(double setpoint){
