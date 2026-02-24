@@ -5,6 +5,7 @@
   "pathFolders": [
     "Centro-Deposito",
     "Centro-PontoDeApoio",
+    "Centro-ZonaNeutraDireita",
     "Centro-ZonaNeutraEsquerda",
     "Direta-Completo",
     "Direta-Deposito",
@@ -14,12 +15,13 @@
     "Esquerda-Deposito",
     "Esquerda-PontoDeApoio",
     "Esquerda-ZonaNeutra",
-    "Centro-ZonaNeutraDireita"
+    "Main-Auto-Right"
   ],
   "autoFolders": [
+    "Centro",
     "Direita",
     "Esquerda",
-    "Centro"
+    "Mains Autos"
   ],
   "defaultMaxVel": 3.0,
   "defaultMaxAccel": 3.0,
