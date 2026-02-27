@@ -38,8 +38,8 @@ public class Shooter extends SubsystemBase{
     }
 
     public void setSpeedShootFront(){
-        shooter1.set(0.8);
-        shooter2.set(0.8);
+        shooter1.set(1);
+        shooter2.set(1);
         
     }
 
