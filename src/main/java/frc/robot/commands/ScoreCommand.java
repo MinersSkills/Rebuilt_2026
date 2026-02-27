@@ -52,7 +52,7 @@ public class ScoreCommand extends Command{
 
     @Override
     public boolean isFinished() {
-        if (timer.hasElapsed(5)){
+        if (timer.hasElapsed(3)){
         return true;
         } else {
             return false;
