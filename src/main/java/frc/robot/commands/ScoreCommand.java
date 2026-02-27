@@ -38,7 +38,7 @@ public class ScoreCommand extends Command{
 
     @Override
     public void execute() {
-        if (timer.hasElapsed(1.5)){
+        if (timer.hasElapsed(0.3)){
             shooter.setSpeedShootStars();
         }
     }
