@@ -1,0 +1,25 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "MainPathLeftStart"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "MainPathLeftBack"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "Mains Autos",
+  "choreoAuto": false
+}

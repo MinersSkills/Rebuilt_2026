@@ -3,38 +3,81 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 8.162,
-        "y": 4.737
+        "x": 8.153717948717947,
+        "y": 4.525968660968662
       },
       "prevControl": null,
       "nextControl": {
-        "x": 9.162,
-        "y": 4.737
+        "x": 4.915378917378914,
+        "y": 3.694766381766383
       },
       "isLocked": false,
       "linkedName": "MainPathLeft_lastpoint"
     },
     {
       "anchor": {
-        "x": 4.0,
-        "y": 6.0
+        "x": 4.44,
+        "y": 7.5
       },
       "prevControl": {
-        "x": 3.0,
-        "y": 6.0
+        "x": 8.19247863247863,
+        "y": 7.668062678062677
+      },
+      "nextControl": {
+        "x": 2.37286260630065,
+        "y": 7.407418887531642
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.282792022788231,
+        "y": 5.1073789173813
+      },
+      "prevControl": {
+        "x": 2.4558974358974366,
+        "y": 6.334800569800571
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": null
     }
   ],
-  "rotationTargets": [],
-  "constraintZones": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.17296737441740695,
+      "rotationDegrees": -90.0
+    },
+    {
+      "waypointRelativePos": 0.5748316934230923,
+      "rotationDegrees": -90.0
+    },
+    {
+      "waypointRelativePos": 1.0015535991714117,
+      "rotationDegrees": 0.0
+    }
+  ],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0.040364583333330664,
+      "maxWaypointRelativePos": 0.6393229166666963,
+      "constraints": {
+        "maxVelocity": 0.75,
+        "maxAcceleration": 0.75,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 3.0,
-    "maxAcceleration": 3.0,
+    "maxVelocity": 1.0,
+    "maxAcceleration": 1.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -42,10 +85,10 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -46.24536426676834
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Main-Auto-Left",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 90.0
