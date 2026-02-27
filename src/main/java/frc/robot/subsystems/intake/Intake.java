@@ -1,6 +1,7 @@
 package frc.robot.subsystems.intake;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkBase.ControlType;
+import com.ctre.phoenix6.hardware.TalonFX;
 import com.revrobotics.PersistMode;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
@@ -13,10 +14,10 @@ import frc.robot.generalconstants.IntakeConstants;
 
 public class Intake extends SubsystemBase {
     private SparkMaxConfig motorIntakeConfig;
-    private SparkMaxConfig motorIntakeWheelsConfig;
 
     public static SparkMax intake = new SparkMax(32, MotorType.kBrushless);
-    public static SparkMax intakeWheels = new SparkMax(22, MotorType.kBrushless);
+
+    public static TalonFX intakeWheels = new TalonFX(22);
 
     public RelativeEncoder intakeEncoder;
 
@@ -35,13 +36,6 @@ public class Intake extends SubsystemBase {
                                          IntakeConstants.Pid.KD); 
 
         intake.configure(motorIntakeConfig, null, PersistMode.kNoPersistParameters);
-
-        // Intake Wheels
-        motorIntakeWheelsConfig = new SparkMaxConfig();
-        motorIntakeWheelsConfig.idleMode(IdleMode.kBrake);
-        motorIntakeWheelsConfig.inverted(true);
-
-        intakeWheels.configure(motorIntakeConfig, null, PersistMode.kNoPersistParameters);
         
         // Encoder
         intakeEncoder = intake.getEncoder();

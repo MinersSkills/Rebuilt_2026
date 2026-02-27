@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.ScoreCommand;
 import frc.robot.commands.indexer.SetIndexerCounterClock;
+import frc.robot.commands.indexer.SetIndexerOff;
 import frc.robot.commands.indexer.SetIndexerOn;
 import frc.robot.commands.intake.SetIntakeDown;
 import frc.robot.commands.intake.SetIntakeMode;
@@ -267,7 +268,7 @@ public class RobotContainer {
                         new SetShooterStarsOn(shooter)
                 ); // set only the starks axis on
                 
-                keyboardController.getVTrigger().onTrue(
+                keyboardController.getVTrigger().onTrue( 
                         new SetShooterOff(shooter)
                 ); // turn off the shooter
 
@@ -280,7 +281,7 @@ public class RobotContainer {
                 ); // set the indexer on in counter clock wise
 
                 keyboardController.getCommaTrigger().onTrue(
-                        new SetIndexerOn(indexer)
+                        new SetIndexerOff(indexer)
                 ); // turn off the indexer
         }
 

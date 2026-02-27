@@ -1,28 +1,34 @@
 package frc.robot.subsystems.indexer;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.PersistMode;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.SparkMaxConfig;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Indexer extends SubsystemBase{
 
-    private VictorSPX indexer;
+    private SparkMax indexer = new SparkMax(22, MotorType.kBrushless);
+
+    private SparkMaxConfig indexerConfig;
 
     public Indexer(){
-        indexer = new VictorSPX(6);
+        indexerConfig = new SparkMaxConfig();
+        indexerConfig.inverted(false);
 
-        indexer.setInverted(false);
+        indexer.configure(indexerConfig, null, PersistMode.kNoPersistParameters);
     }
 
     public void setIndexerOn(){
-        indexer.set(ControlMode.PercentOutput, 1);
+        indexer.set(1);
     }
 
     public void setIndexerCounterClock(){
-        indexer.set(ControlMode.PercentOutput, -1);
+        indexer.set(-1);
     }
 
     public void setIndexerOff(){
-        indexer.set(ControlMode.PercentOutput, 0);
+        indexer.stopMotor();
     }
 }

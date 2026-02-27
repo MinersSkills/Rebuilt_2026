@@ -7,13 +7,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "MainPathStart"
+            "pathName": "MainPathLeftStart"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "MainPathBack"
+            "pathName": "MainPathLeftBack"
           }
         }
       ]
