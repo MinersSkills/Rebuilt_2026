@@ -29,7 +29,7 @@ public class ScoreCommand extends Command{
     public void initialize() {
         intake.setWheelsOff();
         intake.setIntakeDown();
-        // indexer.setIndexerOn();
+        indexer.setIndexerOn();
         shooter.setSpeedShootFront();
 
         timer.reset();
