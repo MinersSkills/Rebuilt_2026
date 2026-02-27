@@ -23,15 +23,15 @@ public class SetIntakeDown extends Command {
 
     @Override
     public boolean isFinished(){
-        if (intake.intakeEncoder.getPosition() <= IntakeConstants.Setpoints.POSITION_DOWN){
+        if (intake.intakeEncoder.getPosition() >= IntakeConstants.Setpoints.POSITION_DOWN - 0.2){
             return true;
         } else {
             return false;
-        }
     }
+}
 
-    @Override
-    public void end(boolean interrupted) {
-        intake.setPivotOff();
-    }
+@Override
+public void end(boolean interrupted) { 
+    intake.setPivotOff();
+}
 }
