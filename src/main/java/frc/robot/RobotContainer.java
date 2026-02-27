@@ -21,6 +21,7 @@ import frc.robot.commands.ScoreCommand;
 import frc.robot.commands.indexer.SetIndexerCounterClock;
 import frc.robot.commands.indexer.SetIndexerOff;
 import frc.robot.commands.indexer.SetIndexerOn;
+import frc.robot.commands.intake.IntakeAutoCollect;
 import frc.robot.commands.intake.SetIntakeDown;
 import frc.robot.commands.intake.SetIntakeMode;
 import frc.robot.commands.intake.SetIntakeUp;
@@ -152,18 +153,27 @@ public class RobotContainer {
          * The container for the robot. Contains subsystems, OI devices, and commands.
          */
         public RobotContainer() {
+                /*
+                 * Auto commands
+                */
+
+                NamedCommands.registerCommand("IntakeUp", new SetIntakeUp(intake));
+                NamedCommands.registerCommand("setIntakeDown", new SetIntakeDown(intake));
+                NamedCommands.registerCommand("IntakeOn", new IntakeAutoCollect(intake));
+                NamedCommands.registerCommand("IntakeOff", new SetWheelsOff(intake));
+                NamedCommands.registerCommand("IndexerOn", new SetIndexerOn(indexer));
+                NamedCommands.registerCommand("ScoreCommand", new ScoreCommand(shooter, indexer, intake));
+                NamedCommands.registerCommand("ShooterFront", new SetShooterFrontOn(shooter));
+
                 // Configure the trigger bindings
                 configureBindings();
+
 
                 autoChooser = AutoBuilder.buildAutoChooser();
                 SmartDashboard.putData("Auto Chooser", autoChooser);
 
                 DriverStation.silenceJoystickConnectionWarning(true);
-                NamedCommands.registerCommand("test", Commands.print("I EXIST"));
-                NamedCommands.registerCommand("IntakeUp", new SetIntakeUp(intake));
-                NamedCommands.registerCommand("IntakeDown", new SetIntakeDown(intake));
-                NamedCommands.registerCommand("IntakeOn", new SetWheelsOn(intake));
-                NamedCommands.registerCommand("IndexerOn", new SetIndexerOn(indexer));
+
                 // NamedCommands.registerCommand("ShooterOn", new SetShooterScore(shooter, drivebase));
         }
 
@@ -181,6 +191,9 @@ public class RobotContainer {
          * Flight joysticks}.
          */
         private void configureBindings() {
+
+
+
                 driveDirectAngle.aim(PoseFlipper.hubCenterPosition());
 
                 Command driveFieldOrientedDirectAngle = drivebase.driveFieldOriented(driveDirectAngle);
