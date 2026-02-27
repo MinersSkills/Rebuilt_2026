@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 4.2905698005698,
-        "y": 0.5594586894586906
+        "x": 4.285678571428573,
+        "y": 0.709333333333334
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.120099715099714,
-        "y": 0.41733618233618364
+        "x": 7.115208485958487,
+        "y": 0.5672108262108271
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "MainStartPoint"
     },
     {
       "anchor": {
-        "x": 7.068418803418804,
-        "y": 3.453589743589744
+        "x": 7.18,
+        "y": 3.8
       },
       "prevControl": {
-        "x": 7.6498290598290595,
-        "y": 1.3992735042735047
+        "x": 7.761410256410255,
+        "y": 1.7456837606837605
       },
       "nextControl": null,
       "isLocked": false,
@@ -40,8 +40,8 @@
       "minWaypointRelativePos": 0.48425357873210295,
       "maxWaypointRelativePos": 1.0,
       "constraints": {
-        "maxVelocity": 0.75,
-        "maxAcceleration": 0.75,
+        "maxVelocity": 2.0,
+        "maxAcceleration": 2.0,
         "maxAngularVelocity": 540.0,
         "maxAngularAcceleration": 720.0,
         "nominalVoltage": 12.0,
@@ -50,7 +50,19 @@
     }
   ],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "setIntakeDown",
+      "waypointRelativePos": 0.21866028708134164,
+      "endWaypointRelativePos": 1.0,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "IntakeOn"
+        }
+      }
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
