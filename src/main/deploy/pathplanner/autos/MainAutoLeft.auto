@@ -15,6 +15,30 @@
           "data": {
             "pathName": "MainPathLeftBack"
           }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ScoreCommand"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "ConnectionPathLeft"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "ConnectionBackLeft"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ScoreCommand"
+          }
         }
       ]
     }
