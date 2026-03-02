@@ -13,13 +13,14 @@ import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import swervelib.SwerveInputStream;
 
 public class DriveToNearstPassPosition extends Command{
-     private final SwerveSubsystem swerve;
+    private final SwerveSubsystem swerve;
     private Pose2d targetPose = new Pose2d();
+
     private final SwerveInputStream stream;
+
     private final ProfiledPIDController xPID;
     private final ProfiledPIDController yPID;
     private final ProfiledPIDController thetaPID;
-
 
     public DriveToNearstPassPosition(SwerveSubsystem swerve, SwerveInputStream stream) {
         this.swerve = swerve;
@@ -64,14 +65,24 @@ public class DriveToNearstPassPosition extends Command{
 
         Pose2d pose = swerve.getPose();
         double currentY = swerve.getPose().getY();
+        double currentX = swerve.getPose().getX();
 
         if(DriverStation.getAlliance().get() == Alliance.Blue){
+            if(currentX <= 5){
+                cancel();
+                return;
+            }
+            
             if (currentY <= 4.035){
                 targetPose = FieldConstants.RightPassPosition;
             } else {
                 targetPose = FieldConstants.LeftPassPosition;
             }
         } else {
+            if(currentX <= 11.5){
+                cancel();
+                return;
+            }
             if(currentY <= 4.035){
                 targetPose = FieldConstants.RightPassPositionRed;
             } else {
