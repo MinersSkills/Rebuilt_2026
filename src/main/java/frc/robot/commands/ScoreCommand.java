@@ -45,9 +45,8 @@ public class ScoreCommand extends Command{
 
     @Override
     public void end(boolean interrupted) {
-        shooter.setShooterOff();
-        intake.setIntakeUp();
-        indexer.setIndexerOff();
+        intake.setIntakeMidle();
+        intake.setWheelsOn();
     }
 
     @Override
