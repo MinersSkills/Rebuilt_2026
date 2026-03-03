@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.ScoreCommand;
+import frc.robot.commands.SetStateOff;
 import frc.robot.commands.indexer.SetIndexerCounterClock;
 import frc.robot.commands.indexer.SetIndexerOff;
 import frc.robot.commands.indexer.SetIndexerOn;
@@ -204,7 +205,12 @@ public class RobotContainer {
 
                 // COMANDOS PILOTOS//
 
-                driverXbox.back().onTrue(Commands.runOnce(() -> CommandScheduler.getInstance().cancelAll()));
+                driverXbox.back().onTrue(
+                Commands.runOnce(() -> {
+                        CommandScheduler.getInstance().cancelAll();
+                        new SetStateOff(intake, indexer, shooter).schedule();
+                        })
+                );      
 
                 driverXbox.y().toggleOnTrue(
 
@@ -245,7 +251,7 @@ public class RobotContainer {
 
                 driverXbox.povDown().onTrue(
                         new DriveToNearstPassPosition(drivebase, driveDirectAngle)
-                );
+                ); // drive to nearst pass position
 
                 // COMANDOS COPILOTO //
 
