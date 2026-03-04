@@ -13,7 +13,7 @@ public final class IntakeConstants {
     public final class Setpoints{
         public static final double POSITION_UP = 0.5;
         public static final double POSITION_DOWN = 8.8;
-        public static final double POSITION_MIDLE = 4;
+        public static final double POSITION_MIDDLE = 4;
     }
 
     public final class Speeds{
