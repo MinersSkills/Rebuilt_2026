@@ -93,4 +93,9 @@ public class KeyboardController {
     public Trigger getCommaTrigger(){
         return createTrigger(",");
     }
+
+    public Trigger getYTrigger(){
+        return createTrigger("y");
+    }
+
 }
