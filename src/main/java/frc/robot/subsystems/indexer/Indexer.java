@@ -21,11 +21,11 @@ public class Indexer extends SubsystemBase{
     }
 
     public void setIndexerOn(){
-        indexer.set(0.3);
+        indexer.set(0.15);
     }
 
     public void setIndexerCounterClock(){
-        indexer.set(-0.3);
+        indexer.set(-0.15);
     }
 
     public void setIndexerOff(){
