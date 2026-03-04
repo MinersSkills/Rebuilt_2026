@@ -24,6 +24,7 @@ import frc.robot.commands.indexer.SetIndexerOff;
 import frc.robot.commands.indexer.SetIndexerOn;
 import frc.robot.commands.intake.IntakeAutoCollect;
 import frc.robot.commands.intake.SetIntakeDown;
+import frc.robot.commands.intake.SetIntakeMiddle;
 import frc.robot.commands.intake.SetIntakeMode;
 import frc.robot.commands.intake.SetIntakeUp;
 import frc.robot.commands.intake.SetWheelsOff;
@@ -274,6 +275,10 @@ public class RobotContainer {
                 keyboardController.getTTrigger().onTrue(
                         new SetWheelsOff(intake)
                 ); // set the wheels off
+
+                keyboardController.getYTrigger().onTrue(
+                        new SetIntakeMiddle(intake)
+                ); // set intake to middle position
 
                 keyboardController.getZTrigger().onTrue(
                         new ShooterDelayTimer(shooter)
