@@ -56,7 +56,7 @@ public class Intake extends SubsystemBase {
     }
 
     public void setIntakeMidle(){
-        setSetpoint(IntakeConstants.Setpoints.POSITION_MIDLE);
+        setSetpoint(IntakeConstants.Setpoints.POSITION_MIDDLE);
     }
 
     public void setWheelsIntake(){
