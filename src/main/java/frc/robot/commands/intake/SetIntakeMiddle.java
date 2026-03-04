@@ -18,7 +18,7 @@ public class SetIntakeMiddle extends Command {
 
     @Override
     public void execute() {
-        intake.setIntakeMidle();
+        intake.setIntakeMiddle();
     }
 
     @Override
