@@ -46,7 +46,7 @@ public class ScoreCommand extends Command{
     @Override
     public void end(boolean interrupted) {
         intake.setIntakeMidle();
-        intake.setWheelsOn();
+        intake.setWheelsIntake();
     }
 
     @Override
