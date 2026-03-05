@@ -22,12 +22,12 @@ public class KeyboardController {
         return createTrigger("Key.up");
     }
 
-    public Trigger getRightTrigger(){
-        return createTrigger("Key.right");
+    public Trigger getDownTrigger(){
+        return createTrigger("Key.down");
     }
 
-    public Trigger getLeftTrigger(){
-        return createTrigger("Key.left");
+    public Trigger getRightTrigger(){
+        return createTrigger("Key.right");
     }
 
     public Trigger getPTrigger(){
@@ -97,5 +97,8 @@ public class KeyboardController {
     public Trigger getYTrigger(){
         return createTrigger("y");
     }
-
+    
+    public Trigger getBracketTrigger(){
+        return createTrigger("]");
+    }
 }
