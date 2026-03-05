@@ -19,6 +19,9 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.ScoreCommand;
 import frc.robot.commands.SetStateOff;
+import frc.robot.commands.climber.SetClimberDown;
+import frc.robot.commands.climber.SetClimberUp;
+import frc.robot.commands.climber.StopClimber;
 import frc.robot.commands.indexer.SetIndexerCounterClock;
 import frc.robot.commands.indexer.SetIndexerOff;
 import frc.robot.commands.indexer.SetIndexerOn;
@@ -209,7 +212,7 @@ public class RobotContainer {
                 driverXbox.back().onTrue(
                 Commands.runOnce(() -> {
                         CommandScheduler.getInstance().cancelAll();
-                        new SetStateOff(intake, indexer, shooter).schedule();
+                        new SetStateOff(intake, indexer, shooter, climber).schedule();
                         })
                 );      
 
@@ -307,6 +310,25 @@ public class RobotContainer {
                 keyboardController.getCommaTrigger().onTrue(
                         new SetIndexerOff(indexer)
                 ); // turn off the indexer
+
+                keyboardController.getUpTrigger().onTrue(
+                        new SetClimberUp(climber)
+                ); // makes climber go up
+
+                keyboardController.getDownTrigger().onTrue(
+                        new SetClimberDown(climber)
+                ); // makes climber go down
+
+                keyboardController.getRightTrigger().onTrue(
+                        new StopClimber(climber)
+                ); // stop the climber
+
+                keyboardController.getBracketTrigger().onTrue(
+                        Commands.runOnce(() -> {
+                        CommandScheduler.getInstance().cancelAll();
+                        new SetStateOff(intake, indexer, shooter, climber).schedule();
+                        })
+                );
         }
 
         /**
