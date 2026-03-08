@@ -225,21 +225,21 @@ public class RobotContainer {
                 driverXbox.b().onTrue(
                         Commands.sequence(
                                 new DriveToPose(drivebase, PoseFlipper.scorePositionRight(), driveDirectAngle),
-                                new ScoreCommand(shooter, indexer, intake)
+                                new ScoreCommand(shooter, indexer, intake).andThen(new SetIntakeDown(intake))
                         )
                 ); // auto score by the right
 
                 driverXbox.a().onTrue(
                         Commands.sequence(
                                 new DriveToPose(drivebase, PoseFlipper.scorePositionCenter(), driveDirectAngle),
-                                new ScoreCommand(shooter, indexer, intake)
+                                new ScoreCommand(shooter, indexer, intake).andThen(new SetIntakeDown(intake))
                         )
                 ); // auto score by the center
 
                 driverXbox.x().onTrue(
                         Commands.sequence(
                                 new DriveToPose(drivebase, PoseFlipper.scorePositionLeft(), driveDirectAngle),
-                                new ScoreCommand(shooter, indexer, intake)      
+                                new ScoreCommand(shooter, indexer, intake).andThen(new SetIntakeDown(intake))
                         )
                 ); // auto score by the left
 
@@ -267,19 +267,19 @@ public class RobotContainer {
                         new SetIntakeUp(intake)
                 ); // take the intake up
 
-                keyboardController.getETrigger().onTrue(
+                keyboardController.getTTrigger().onTrue(
                         new SetWheelsOn(intake)
                 ); // set the wheels on to intake
 
-                keyboardController.getRTrigger().onTrue(
+                keyboardController.getYTrigger().onTrue(
                         new SetWheelsOutake(intake)
                 ); // set the wheels counter clock wise to outake
 
-                keyboardController.getTTrigger().onTrue(
+                keyboardController.getUTrigger().onTrue(
                         new SetWheelsOff(intake)
                 ); // set the wheels off
 
-                keyboardController.getYTrigger().onTrue(
+                keyboardController.getETrigger().onTrue(
                         new SetIntakeMiddle(intake)
                 ); // set intake to middle position
 

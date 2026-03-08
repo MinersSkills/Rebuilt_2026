@@ -17,7 +17,7 @@ public final class IntakeConstants {
     }
 
     public final class Speeds{
-        public static final double SPEED_INTAKE = -0.4;
-        public static final double SPEED_OUTAKE = 0.425;
+        public static final double SPEED_INTAKE = -0.45;
+        public static final double SPEED_OUTAKE = 0.45;
     }
 }   

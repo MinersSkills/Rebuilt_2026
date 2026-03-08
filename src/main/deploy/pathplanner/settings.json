@@ -3,25 +3,10 @@
   "robotLength": 0.68,
   "holonomicMode": true,
   "pathFolders": [
-    "Centro-Deposito",
-    "Centro-PontoDeApoio",
-    "Centro-ZonaNeutraDireita",
-    "Centro-ZonaNeutraEsquerda",
-    "Direta-Completo",
-    "Direta-Deposito",
-    "Direta-PontoDeApoio",
-    "Direta-ZonaNeutra",
-    "Esquerda-Completo",
-    "Esquerda-Deposito",
-    "Esquerda-PontoDeApoio",
-    "Esquerda-ZonaNeutra",
-    "Main-Auto-Right",
-    "Main-Auto-Left"
+    "Main-Auto-Left",
+    "Main-Auto-Right"
   ],
   "autoFolders": [
-    "Centro",
-    "Direita",
-    "Esquerda",
     "Mains Autos"
   ],
   "defaultMaxVel": 3.0,

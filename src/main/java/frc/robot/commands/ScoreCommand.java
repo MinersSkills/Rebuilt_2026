@@ -27,19 +27,19 @@ public class ScoreCommand extends Command{
 
     @Override
     public void initialize() {
-        intake.setWheelsOff();
-        intake.setIntakeDown();
-        indexer.setIndexerOn();
-        shooter.setSpeedShootFront();
-
         timer.reset();
         timer.start();
+
+        indexer.setIndexerCounterClock();
+        intake.setIntakeDown();
+        shooter.setSpeedShootFront();
     }
 
     @Override
     public void execute() {
-        if (timer.hasElapsed(0.3)){
+        if (timer.hasElapsed(1.5)){
             shooter.setSpeedShootStars();
+            indexer.setIndexerOn();
         }
     }
 
