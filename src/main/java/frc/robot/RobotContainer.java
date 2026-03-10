@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
@@ -159,6 +160,7 @@ public class RobotContainer {
          */
         public RobotContainer() {
                 /*
+                
                  * Auto commands
                 */
 
@@ -167,8 +169,16 @@ public class RobotContainer {
                 NamedCommands.registerCommand("IntakeOn", new IntakeAutoCollect(intake));
                 NamedCommands.registerCommand("IntakeOff", new SetWheelsOff(intake));
                 NamedCommands.registerCommand("IndexerOn", new SetIndexerOn(indexer));
+                NamedCommands.registerCommand("IndexerOnCpunterClock", new SetIndexerCounterClock(indexer));
+                NamedCommands.registerCommand("IndexerOff", new SetIndexerOff(indexer));
                 NamedCommands.registerCommand("ScoreCommand", new ScoreCommand(shooter, indexer, intake));
                 NamedCommands.registerCommand("ShooterFront", new SetShooterFrontOn(shooter));
+                NamedCommands.registerCommand("SetScooreCommandOff", new InstantCommand(() -> {
+                        indexer.setIndexerOff();
+                        shooter.setShooterOff();
+                        intake.setWheelsOff();
+                }, shooter, indexer, intake));
+                NamedCommands.registerCommand("ClimberDown", new SetClimberDown(climber));
 
                 // Configure the trigger bindings
                 configureBindings();
