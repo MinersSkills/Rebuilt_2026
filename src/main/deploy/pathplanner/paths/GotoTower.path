@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.95,
+        "y": 5.043
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 0.95,
+        "y": 4.793
+      },
+      "isLocked": false,
+      "linkedName": "MainPathCenter_OnSteptoTower"
+    },
+    {
+      "anchor": {
+        "x": 0.95,
+        "y": 4.43
+      },
+      "prevControl": {
+        "x": 0.95,
+        "y": 4.68
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -179.57471083884437
+  },
+  "reversed": false,
+  "folder": "Main-Auto-Center",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -179.50401935084625
+  },
+  "useDefaultConstraints": true
+}

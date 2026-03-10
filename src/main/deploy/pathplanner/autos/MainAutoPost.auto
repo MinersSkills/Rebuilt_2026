@@ -1,0 +1,67 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "MainPathStart"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "MainPathBack"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ScoreCommand"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 1.0
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "SetScooreCommandOff"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "HelpPoint"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 2.0
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "HelpPointConnection"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ScoreCommand"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "Mains Autos",
+  "choreoAuto": false
+}
