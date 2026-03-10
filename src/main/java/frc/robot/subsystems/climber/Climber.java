@@ -7,6 +7,7 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Climber extends SubsystemBase{
@@ -35,8 +36,11 @@ public class Climber extends SubsystemBase{
     public void SetClimber() { 
         if (driver.getRightBumper()){
             climber.set(-1);
+            SmartDashboard.putNumber("Posição climber Down", encoder.getPosition());
+
         } else if (driver.getRightTriggerAxis() > 0.5){
             climber.set(1);
+        SmartDashboard.putNumber("Posição climber", encoder.getPosition());
         } else {
             climber.set(0);
         }
