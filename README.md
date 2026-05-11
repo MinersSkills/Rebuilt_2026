@@ -1,6 +1,11 @@
 # Peter Lund — Rebuilt 2026
 
+<img width="747" height="585" alt="image" src="https://github.com/user-attachments/assets/3be305e6-cba7-4763-9943-18254cc64691" />
+
+
 This repository contains the robot code for the "Peter Lund". It uses WPILib, a command-based structure, and a swerve drive. The codebase is laid out under `src/main/java/frc/robot`.
+
+##
 
 Highlights
 - Controls  
